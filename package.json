@@ -1,0 +1,27 @@
+{
+  "name": "cineverse",
+  "version": "3.0.0",
+  "description": "Modern dizi ve film kültür platformu",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.10"
+  },
+  "keywords": [
+    "cinema",
+    "movies",
+    "tv-shows",
+    "reviews",
+    "film-culture"
+  ],
+  "author": "CineVerse Team",
+  "license": "MIT"
+}

@@ -2,9 +2,10 @@
 
 Modern, sinematik bir dizi ve film kültür platformu. LandoNorris.com tarzında smooth scroll ve sahne geçişleriyle zenginleştirilmiş tek sayfalık deneyim.
 
-![Version](https://img.shields.io/badge/version-2.0-red)
-![Status](https://img.shields.io/badge/status-production-green)
+![Version](https://img.shields.io/badge/version-3.0-red)
+![Status](https://img.shields.io/badge/status-backend_ready-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+![Backend](https://img.shields.io/badge/backend-supabase-brightgreen)
 
 ---
 
@@ -41,82 +42,63 @@ Modern, sinematik bir dizi ve film kültür platformu. LandoNorris.com tarzında
 ## 🚀 Kurulum
 
 ### Gereksinimler
-- Modern web tarayıcı (Chrome, Firefox, Safari, Edge)
-- Yerel sunucu (Live Server, Python HTTP Server, vb.)
+- **Node.js**: v18+ (https://nodejs.org)
+- **Supabase Account**: https://supabase.com
+- **Git**: Version control
 
-### Adımlar
+### Hızlı Başlangıç
 
 1. **Projeyi İndir**
 ```bash
-git clone https://github.com/username/cineverse.git
+git clone https://github.com/alpeki/cineverse.git
 cd cineverse
 ```
 
-2. **Assets Ekle**
-```
-/assets
-  /images
-    - movie1.jpg → movie6.jpg (film posterleri)
-    - profile1.jpg → profile8.jpg (profil fotoları)
-    - list-scifi.jpg, list-cult.jpg (liste görselleri)
-    - news1.jpg → news3.jpg (haber görselleri)
-    - og-cover.jpg (sosyal medya paylaşım görseli)
-  /videos
-    - intro.mp4 (hero video)
-```
-
-3. **Yerel Sunucu Başlat**
-
-**VS Code Live Server:**
-```
-Sağ tık → Open with Live Server
-```
-
-**Python:**
+2. **Dependencies Yükle**
 ```bash
-python -m http.server 8000
-```
-
-**Node.js:**
-```bash
-npx serve
-```
-
-4. **Tarayıcıda Aç**
-```
-http://localhost:8000
-```
-
-### 🛠️ Geliştirme (Gelecek)
-
-Şu anda CDN üzerinden çalışıyoruz. İleride build sistemi için:
-
-```bash
-# Dependencies yükle
 npm install
+```
 
-# Development server
+3. **Environment Variables**
+```bash
+# .env.local oluştur
+cp .env.example .env.local
+
+# Supabase credentials ekle
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
+```
+
+4. **Database Setup**
+- Supabase Dashboard'da SQL Editor'ü aç
+- `supabase/migrations/20251031_initial_schema.sql` dosyasını çalıştır
+- `supabase/migrations/20251031_seed_data.sql` dosyasını çalıştır
+
+5. **Development Server**
+```bash
 npm run dev
+```
 
+Tarayıcıda `http://localhost:3000` adresini aç.
+
+### 📚 Detaylı Kurulum
+
+- **Supabase Setup**: [SUPABASE_SETUP.md](./SUPABASE_SETUP.md)
+- **Deployment Guide**: [DEPLOYMENT.md](./DEPLOYMENT.md)
+- **Quick Start**: [README_SUPABASE.md](./README_SUPABASE.md)
+
+### 🛠️ Build & Deploy
+
+```bash
 # Production build
 npm run build
-```
 
-**package.json** (planlanan):
-```json
-{
-  "dependencies": {
-    "@studio-freight/lenis": "^1.0.29",
-    "gsap": "^3.12.2",
-    "tailwindcss": "^3.4.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
-  }
-}
-```
+# Preview build
+npm run preview
 
-> **Not**: V3.0'da build sistemi ve npm workflow'u eklenecek.
+# Deploy to Vercel
+npm run deploy
+```
 
 ---
 
@@ -132,18 +114,34 @@ npm run build
 
 ```
 cineverse/
-├── index.html              # Ana HTML dosyası
-├── style.css               # Custom CSS stilleri
-├── script.js               # JavaScript (Lenis, GSAP, Modal)
-├── gelecek-gelistirmeler.md # Roadmap
-├── README.md               # Bu dosya
+├── src/
+│   ├── lib/
+│   │   └── supabase.js          # Supabase client
+│   └── services/
+│       ├── movies.js            # Film servisleri
+│       ├── profiles.js          # Profil servisleri
+│       ├── news.js              # Haber servisleri
+│       └── lists.js             # Liste servisleri
+├── supabase/
+│   └── migrations/
+│       ├── 20251031_initial_schema.sql
+│       └── 20251031_seed_data.sql
+├── index.html                   # Ana HTML dosyası
+├── style.css                    # Custom CSS stilleri
+├── script.js                    # JavaScript (Lenis, GSAP, Modal)
+├── package.json                 # Dependencies
+├── vite.config.js              # Build config
+├── .env.example                # Environment template
+├── DEPLOYMENT.md               # Deployment rehberi
+├── README_SUPABASE.md          # Quick start
+├── SUPABASE_SETUP.md           # Detaylı kurulum
+├── PROJE_RAPORU.md             # Proje raporu
+├── PROJE_ONERILERI.md          # Geliştirme önerileri
+├── gelecek-gelistirmeler.md    # Roadmap
+├── experimental.md             # Deneysel özellikler
 └── assets/
-    ├── images/             # Görseller
-    │   ├── movie1.jpg
-    │   ├── profile1.jpg
-    │   └── ...
-    └── videos/             # Videolar
-        └── intro.mp4
+    ├── images/                  # Görseller
+    └── videos/                  # Videolar
 ```
 
 ---
@@ -155,6 +153,17 @@ cineverse/
 - **TailwindCSS**: Utility-first CSS (CDN)
 - **Vanilla JavaScript**: Modüler ve performanslı
 - **CSS3**: will-change, transform optimizations
+
+### Backend
+- **Supabase**: PostgreSQL database + Auto REST API
+- **Row Level Security**: Database-level güvenlik
+- **Supabase Storage**: File storage + CDN
+- **Supabase Auth**: Authentication (V4.0)
+
+### Build Tools
+- **Vite**: Modern build tool
+- **npm**: Package management
+- **@supabase/supabase-js**: Supabase client library
 
 ### Kütüphaneler (CDN)
 - **Lenis**: Smooth scroll ([studio-freight/lenis](https://github.com/studio-freight/lenis))
@@ -279,9 +288,9 @@ const lenis = new Lenis({
 Detaylı geliştirme planı için: [gelecek-gelistirmeler.md](./gelecek-gelistirmeler.md)
 
 **Kısa Özet:**
-- **V2.0**: ✅ Gelişmiş animasyonlar (Tamamlandı)
-- **V2.5**: Testing & CI/CD (2 hafta)
-- **V3.0**: Headless CMS (1 ay)
+- **V2.0**: ✅ Gelişmiş animasyonlar (Tamamlandı - 30 Ekim 2025)
+- **V3.0**: ✅ Supabase Backend (Tamamlandı - 31 Ekim 2025)
+- **V2.5**: Testing & CI/CD (Sonraki öncelik)
 - **V3.5**: CMS + AI pipeline (3 hafta)
 - **V4.0**: Kullanıcı sistemi (2 ay)
 - **V5.0**: Monetization (3 ay)
