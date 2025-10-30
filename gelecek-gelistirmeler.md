@@ -35,6 +35,37 @@
 
 ---
 
+## 🧪 V2.5 — Testing, CI/CD & Analytics
+**Hedef Tarih**: 2 hafta
+
+> **Strateji**: Performans ölçümünü erken başlat, kalite standartlarını oluştur.
+
+### Testing
+- [ ] Unit testler (Jest)
+- [ ] E2E testler (Playwright)
+- [ ] Visual regression tests
+- [ ] Performance tests (Lighthouse CI)
+
+### CI/CD Pipeline
+- [ ] GitHub Actions workflow
+- [ ] Automated deployments (Vercel)
+- [ ] Environment variables management
+- [ ] Branch protection rules
+
+### Analytics & Monitoring
+- [ ] Vercel Analytics entegrasyonu
+- [ ] Sentry error tracking
+- [ ] Web Vitals monitoring
+- [ ] User behavior analytics
+
+### Code Quality
+- [ ] ESLint + Prettier setup
+- [ ] Husky pre-commit hooks
+- [ ] Code documentation
+- [ ] TypeScript migration (başlangıç)
+
+---
+
 ## 🗄️ V3.0 — Headless CMS Entegrasyonu
 **Hedef Tarih**: 1 ay
 
@@ -57,34 +88,46 @@
 - [ ] GET /api/news
 - [ ] GET /api/lists
 
+### Build System & Dependencies
+- [ ] Vite build setup
+- [ ] npm workflow (package.json)
+- [ ] TailwindCSS + GSAP local install
+- [ ] Code splitting
+- [ ] Bundle optimization
+
+### Uluslararasılaşma (i18n) - Başlangıç
+- [ ] Multi-language support (TR, EN)
+- [ ] i18n routing structure
+- [ ] Locale-based content from CMS
+
 ---
 
-## 🤖 V4.0 — AI & API Entegrasyonu
+## 🔬 V3.5 — CMS + AI Entegrasyon Testi
+**Hedef Tarih**: 3 hafta
+
+> **Strateji**: CMS (V3) ile AI (V4) birleşimini test et, pipeline oluştur.
+
+### TMDB + CMS Pipeline
+- [ ] TMDB API'den otomatik veri çekme
+- [ ] CMS'e otomatik içerik aktarımı
+- [ ] Görsel optimizasyonu (Cloudinary)
+- [ ] Metadata sync
+
+### AI Content Generation
+- [ ] OpenAI GPT-4 ile film özetleri
+- [ ] Otomatik tag oluşturma
+- [ ] İçerik kalite kontrolü
+- [ ] Batch processing
+
+### Edge AI (Experimental)
+- [ ] Llama 3 veya Mistral edge AI
+- [ ] Offline AI önerileri
+- [ ] Client-side sentiment analysis
+
+---
+
+## 🤖 V4.0 — Kullanıcı Sistemi & Öneriler
 **Hedef Tarih**: 2 ay
-
-### TMDB API
-- [ ] Film/dizi verileri çekme
-- [ ] Poster ve backdrop görselleri
-- [ ] Cast & crew bilgileri
-- [ ] Fragman videoları
-- [ ] Kullanıcı puanları
-
-### OpenAI Entegrasyonu
-- [ ] GPT-4 ile otomatik film özetleri
-- [ ] İnceleme yazısı oluşturma
-- [ ] Sentiment analizi (yorumlar)
-- [ ] Chatbot (film önerileri)
-
-### Öneri Sistemi
-- [ ] Kullanıcı bazlı öneriler
-- [ ] İçerik bazlı filtreleme
-- [ ] Trend analizi
-- [ ] "Buna benzer filmler" özelliği
-
----
-
-## 👤 V5.0 — Kullanıcı Sistemi
-**Hedef Tarih**: 3 ay
 
 ### Authentication
 - [ ] Supabase Auth (email + OAuth)
@@ -104,6 +147,13 @@
 - [ ] Aktivite feed'i
 - [ ] Paylaşım özellikleri (Twitter, Instagram)
 
+### AI-Powered Öneri Sistemi
+- [ ] Kullanıcı bazlı öneriler
+- [ ] İçerik bazlı filtreleme
+- [ ] Trend analizi
+- [ ] "Buna benzer filmler" özelliği
+- [ ] Chatbot (film önerileri)
+
 ### Gamification
 - [ ] Badge sistemi
 - [ ] İzleme istatistikleri
@@ -111,13 +161,20 @@
 
 ---
 
-## 🎯 V6.0 — Premium Özellikler
-**Hedef Tarih**: 4 ay
+## 💰 V5.0 — Premium & Monetization
+**Hedef Tarih**: 3 ay
 
-### Monetization
-- [ ] Stripe ödeme entegrasyonu
+### Stripe Entegrasyonu
+- [ ] Ödeme sistemi kurulumu
 - [ ] Üyelik planları (Free, Pro, Premium)
-- [ ] Premium içerik (özel analizler, erken erişim)
+- [ ] Subscription management
+- [ ] Invoice & billing
+
+### Premium İçerik
+- [ ] Özel analizler ve raporlar
+- [ ] Erken erişim (yeni filmler)
+- [ ] Reklamsız deneyim
+- [ ] Premium badge
 
 ### İçerik Genişletme
 - [ ] Podcast entegrasyonu
@@ -130,20 +187,66 @@
 - [ ] Haftalık özet
 - [ ] Kişiselleştirilmiş öneriler
 
-### Mobile App
-- [ ] React Native geliştirme
-- [ ] Push notifications
+---
+
+## 📱 V6.0 — Mobile App (React Native)
+**Hedef Tarih**: 4 ay
+
+### React Native Development
+- [ ] iOS & Android app geliştirme
+- [ ] Native navigation
 - [ ] Offline mode
-- [ ] App Store / Play Store yayını
+- [ ] Local storage & caching
+
+### Mobile Features
+- [ ] Push notifications
+- [ ] Biometric authentication (Face ID, Touch ID)
+- [ ] Camera integration (QR code scan)
+- [ ] Share extensions
+
+### App Store Deployment
+- [ ] App Store (iOS) yayını
+- [ ] Play Store (Android) yayını
+- [ ] App analytics
+- [ ] Crash reporting
 
 ---
 
-## 📊 Teknik Borç & Optimizasyon
+## 🌍 V7.0 — Globalization & Smart Platforms
+**Hedef Tarih**: 5 ay
+
+### Uluslararasılaşma (i18n) - Tam Destek
+- [ ] Multi-language support (TR, EN, ES, FR, DE, JP)
+- [ ] RTL language support (AR, HE)
+- [ ] Locale-based content
+- [ ] Currency conversion (premium features)
+- [ ] Regional content filtering
+
+### Desktop App
+- [ ] Electron app geliştirme
+- [ ] Native menu & shortcuts
+- [ ] Auto-update system
+- [ ] Cross-platform (Windows, macOS, Linux)
+
+### Browser Extension
+- [ ] Chrome extension
+- [ ] Firefox extension
+- [ ] Quick search & ratings
+- [ ] Watchlist sync
+
+### Smart TV & Voice
+- [ ] Android TV app
+- [ ] Apple TV app
+- [ ] Alexa skill
+- [ ] Google Home integration
+
+---
+
+## 📊 Teknik Borç & Optimizasyon (Devam Eden)
 
 ### Performance
-- [ ] Lighthouse score 90+ (tüm kategoriler)
+- [ ] Lighthouse score 95+ (tüm kategoriler)
 - [ ] Core Web Vitals optimizasyonu
-- [ ] Image lazy loading optimization
 - [ ] CDN entegrasyonu (Cloudflare)
 - [ ] Service Worker (PWA)
 
@@ -154,74 +257,23 @@
 - [ ] High contrast mode
 - [ ] Focus indicators
 
-### Testing
-- [ ] Unit testler (Jest)
-- [ ] E2E testler (Playwright)
-- [ ] Visual regression tests
-- [ ] Performance tests
-
-### DevOps
-- [ ] CI/CD pipeline (GitHub Actions)
-- [ ] Automated deployments
-- [ ] Environment variables management
-- [ ] Error tracking (Sentry)
-- [ ] Analytics (Google Analytics / Plausible)
-
-### Code Quality
-- [ ] ESLint + Prettier setup
-- [ ] TypeScript migration
-- [ ] Code documentation
+### Code Quality (Devam Eden)
+- [ ] TypeScript migration (100%)
 - [ ] Component library (Storybook)
-
----
-
-## 🌍 Uluslararasılaşma (i18n)
-**Hedef Tarih**: 5 ay
-
-- [ ] Multi-language support (TR, EN, ES, FR)
-- [ ] RTL language support
-- [ ] Locale-based content
-- [ ] Currency conversion (premium features)
-
----
-
-## 📱 Platform Genişletme
-**Hedef Tarih**: 6 ay
-
-- [ ] Desktop app (Electron)
-- [ ] Browser extension (Chrome, Firefox)
-- [ ] Smart TV app (Android TV, Apple TV)
-- [ ] Voice assistant integration (Alexa, Google Home)
-
----
-
-## 🔮 Gelecek Fikirler
-
-### AI-Powered Features
-- [ ] Yapay zeka ile film senaryosu analizi
-- [ ] Deepfake detection (sahte fragmanlar)
-- [ ] Otomatik subtitle oluşturma
-- [ ] Görsel benzerlik arama
-
-### Blockchain & Web3
-- [ ] NFT koleksiyonları (film posterleri)
-- [ ] Kripto ödeme desteği
-- [ ] Decentralized review sistemi
-
-### AR/VR
-- [ ] Sanal sinema deneyimi
-- [ ] 360° film setleri turu
-- [ ] AR film posterleri
+- [ ] API documentation (Swagger)
 
 ---
 
 ## 📝 Notlar
 
 ### Öncelikler
-1. **V2.0** - Animasyonlar (kullanıcı deneyimi için kritik)
-2. **V3.0** - CMS (içerik yönetimi için gerekli)
-3. **V4.0** - AI & API (içerik zenginliği)
-4. **V5.0** - Kullanıcı sistemi (topluluk oluşturma)
+1. **V2.5** - Testing & CI/CD (kalite standartları)
+2. **V3.0** - CMS (içerik yönetimi)
+3. **V3.5** - CMS + AI pipeline (otomasyon)
+4. **V4.0** - Kullanıcı sistemi (topluluk)
+5. **V5.0** - Monetization (sürdürülebilirlik)
+6. **V6.0** - Mobile App (platform genişletme)
+7. **V7.0** - Globalization (küresel erişim)
 
 ### Kaynaklar
 - **Tasarım**: Figma, Adobe XD
@@ -236,6 +288,56 @@
 - UI/UX Designer
 - Content Writer
 - DevOps Engineer (V4.0+)
+
+---
+
+---
+
+## 📊 Stratejik Roadmap Tablosu
+
+| Faz | Odak | Not |
+|-----|------|-----|
+| **V2.5** | CI/CD + Testing + Analytics | Performans ölçümünü erken başlat |
+| **V3.0** | CMS (Strapi/Supabase) | Dinamik içerik + Build system |
+| **V3.5** | AI + CMS birleşimi | TMDB + OpenAI pipeline |
+| **V4.0** | Kullanıcı sistemi | Auth + Watchlist + AI öneriler |
+| **V5.0** | Premium & Monetization | Stripe + Premium content |
+| **V6.0** | Mobile App | React Native (iOS + Android) |
+| **V7.0** | Globalization & Smart Platforms | i18n + Desktop + Voice |
+
+---
+
+## 🌟 Ek Geliştirmeler
+
+### Dark Mode Toggle (V2.5)
+- [ ] Tailwind class-based dark mode
+- [ ] User preference storage (localStorage)
+- [ ] Smooth theme transition
+- [ ] System preference detection
+
+### Hero Video Skeleton (V2.5)
+- [ ] Loading skeleton placeholder
+- [ ] Progressive video loading
+- [ ] Fallback image
+- [ ] Loading state indicators
+
+### Early Analytics Integration (V2.5)
+- [ ] Vercel Analytics setup
+- [ ] Sentry error tracking
+- [ ] Web Vitals monitoring
+- [ ] Custom event tracking
+
+### Edge AI Notes (V3.5)
+- [ ] Llama 3 edge deployment research
+- [ ] Mistral offline AI testing
+- [ ] Client-side inference optimization
+- [ ] Privacy-first AI architecture
+
+---
+
+## 🔮 Experimental Features
+
+> **Not**: Blockchain, AR/VR ve gelecek fikirleri için [experimental.md](./experimental.md) dosyasına bakın.
 
 ---
 

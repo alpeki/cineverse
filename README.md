@@ -87,6 +87,45 @@ npx serve
 http://localhost:8000
 ```
 
+### 🛠️ Geliştirme (Gelecek)
+
+Şu anda CDN üzerinden çalışıyoruz. İleride build sistemi için:
+
+```bash
+# Dependencies yükle
+npm install
+
+# Development server
+npm run dev
+
+# Production build
+npm run build
+```
+
+**package.json** (planlanan):
+```json
+{
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.29",
+    "gsap": "^3.12.2",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
+```
+
+> **Not**: V3.0'da build sistemi ve npm workflow'u eklenecek.
+
+---
+
+## 🎬 Demo
+
+[![CineVerse Scroll Showcase](./assets/images/demo-placeholder.gif)](https://github.com/alpeki/cineverse)
+
+> **Demo GIF**: Smooth scroll, parallax ve card animations showcase (yakında eklenecek)
+
 ---
 
 ## 📁 Dosya Yapısı
@@ -241,20 +280,89 @@ Detaylı geliştirme planı için: [gelecek-gelistirmeler.md](./gelecek-gelistir
 
 **Kısa Özet:**
 - **V2.0**: ✅ Gelişmiş animasyonlar (Tamamlandı)
+- **V2.5**: Testing & CI/CD (2 hafta)
 - **V3.0**: Headless CMS (1 ay)
-- **V4.0**: AI & TMDB API (2 ay)
-- **V5.0**: Kullanıcı sistemi (3 ay)
-- **V6.0**: Premium özellikler (4 ay)
+- **V3.5**: CMS + AI pipeline (3 hafta)
+- **V4.0**: Kullanıcı sistemi (2 ay)
+- **V5.0**: Monetization (3 ay)
+- **V6.0**: Mobile App (4 ay)
+- **V7.0**: Globalization (5 ay)
+
+### 📊 Stratejik Roadmap
+
+| Faz | Odak | Not |
+|-----|------|-----|
+| **V2.5** | CI/CD + Testing + Analytics | Performans ölçümünü erken başlat |
+| **V3.0** | CMS (Strapi/Supabase) | Dinamik içerik + Build system |
+| **V3.5** | AI + CMS birleşimi | TMDB + OpenAI pipeline |
+| **V4.0** | Kullanıcı sistemi | Auth + Watchlist + AI öneriler |
+| **V5.0** | Premium & Monetization | Stripe + Premium content |
+| **V6.0** | Mobile App | React Native (iOS + Android) |
+| **V7.0** | Globalization & Smart Platforms | i18n + Desktop + Voice |
 
 ---
 
 ## 🤝 Katkıda Bulunma
 
-1. Fork yapın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit yapın (`git commit -m 'Add amazing feature'`)
-4. Push edin (`git push origin feature/amazing-feature`)
-5. Pull Request açın
+**⚠️ Önemli**: Pull Request açmadan önce lütfen bir **Issue** oluşturun ve önerinizi tartışın.
+
+### Katkı Adımları
+
+1. **Issue Oluştur**
+   - Bug report veya feature request açın
+   - Detaylı açıklama ve örnekler ekleyin
+   - Maintainer onayını bekleyin
+
+2. **Fork & Branch**
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+
+3. **Commit Standards**
+   ```bash
+   git commit -m "feat: Add amazing feature"
+   # veya
+   git commit -m "fix: Resolve scroll bug"
+   ```
+
+4. **Push & PR**
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+   - Pull Request açın
+   - Issue numarasını referans verin (#123)
+   - Screenshot/GIF ekleyin (UI değişiklikleri için)
+
+5. **Code Review**
+   - Feedback'leri bekleyin
+   - Gerekli değişiklikleri yapın
+   - Merge onayını alın
+
+### Commit Konvansiyonları
+- `feat:` - Yeni özellik
+- `fix:` - Bug fix
+- `docs:` - Dokümantasyon
+- `style:` - Formatla, stil
+- `refactor:` - Code refactoring
+- `perf:` - Performans iyileştirmesi
+- `test:` - Test ekleme
+- `chore:` - Build, dependencies
+
+---
+
+## 🔗 SEO & Link Önizleme
+
+[![CineVerse Preview](./assets/images/og-cover.jpg)](https://cineverse.vercel.app)
+
+**Open Graph Meta Tags:**
+```html
+<meta property="og:title" content="CineVerse – Dizi & Film Kültür Sitesi">
+<meta property="og:description" content="Sinema ve dizi kültürünün kalbi.">
+<meta property="og:image" content="/assets/images/og-cover.jpg">
+<meta property="og:type" content="website">
+```
+
+> **Not**: `og-cover.jpg` (1200x630px) sosyal medya paylaşımları için optimize edilmiştir.
 
 ---
 
