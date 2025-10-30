@@ -66,39 +66,54 @@
 
 ---
 
-## 🗄️ V3.0 — Headless CMS Entegrasyonu
+## 🗄️ V3.0 — Headless CMS Entegrasyonu (Supabase)
 **Hedef Tarih**: 1 ay
 
+> **Backend Seçimi**: ✅ **Supabase** (PostgreSQL + Auto REST API + Auth + Storage)  
+> **Detaylı Kurulum**: [SUPABASE_SETUP.md](./SUPABASE_SETUP.md)
+
 ### Backend Setup
-- [ ] Strapi veya Supabase backend kurulumu
-- [ ] Film/dizi koleksiyonları (JSON API)
-- [ ] Dinamik içerik render (fetch + template)
-- [ ] Admin panel (içerik yönetimi)
-- [ ] Image optimization (Cloudinary/ImageKit)
+- [ ] Supabase project oluştur (Frankfurt region)
+- [ ] Database schema setup (movies, profiles, news, lists)
+- [ ] Row Level Security (RLS) policies
+- [ ] Storage buckets (posters, backdrops, avatars)
+- [ ] Supabase CLI kurulumu
 
-### Veri Modelleri
-- [ ] Movies (title, year, rating, poster, review)
-- [ ] Profiles (name, bio, photo, filmography)
-- [ ] News (title, date, thumbnail, content)
-- [ ] Lists (title, description, movies[])
+### Veri Modelleri (PostgreSQL)
+- [ ] Movies (title, year, rating, poster, review, tmdb_id)
+- [ ] Profiles (name, bio, photo, filmography, role)
+- [ ] News (title, slug, content, thumbnail, tags)
+- [ ] Lists (title, slug, description, movie_ids[])
+- [ ] Indexes & constraints
 
-### API Endpoints
-- [ ] GET /api/movies
-- [ ] GET /api/profiles
-- [ ] GET /api/news
-- [ ] GET /api/lists
+### Supabase Features
+- [ ] Auto-generated REST API
+- [ ] Real-time subscriptions (V4.0)
+- [ ] Full-text search
+- [ ] Image transformation (resize, optimize)
+- [ ] Edge Functions (optional)
 
 ### Build System & Dependencies
 - [ ] Vite build setup
 - [ ] npm workflow (package.json)
+- [ ] @supabase/supabase-js install
 - [ ] TailwindCSS + GSAP local install
+- [ ] Environment variables (.env.local)
 - [ ] Code splitting
 - [ ] Bundle optimization
 
 ### Uluslararasılaşma (i18n) - Başlangıç
 - [ ] Multi-language support (TR, EN)
 - [ ] i18n routing structure
-- [ ] Locale-based content from CMS
+- [ ] Locale-based content from Supabase
+- [ ] Language column in all tables
+
+### Frontend Integration
+- [ ] Supabase client setup (src/lib/supabase.js)
+- [ ] Data fetching services (movies, profiles, news)
+- [ ] Loading states & error handling
+- [ ] Client-side caching strategy
+- [ ] Dynamic content rendering
 
 ---
 
@@ -107,11 +122,12 @@
 
 > **Strateji**: CMS (V3) ile AI (V4) birleşimini test et, pipeline oluştur.
 
-### TMDB + CMS Pipeline
+### TMDB + Supabase Pipeline
 - [ ] TMDB API'den otomatik veri çekme
-- [ ] CMS'e otomatik içerik aktarımı
-- [ ] Görsel optimizasyonu (Cloudinary)
-- [ ] Metadata sync
+- [ ] Supabase'e otomatik içerik aktarımı (Edge Function)
+- [ ] Görsel optimizasyonu (Supabase Storage + Transform)
+- [ ] Metadata sync & deduplication
+- [ ] Scheduled imports (cron job)
 
 ### AI Content Generation
 - [ ] OpenAI GPT-4 ile film özetleri
