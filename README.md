@@ -2,10 +2,12 @@
 
 Modern, sinematik bir dizi ve film kültür platformu. LandoNorris.com tarzında smooth scroll ve sahne geçişleriyle zenginleştirilmiş tek sayfalık deneyim.
 
-![Version](https://img.shields.io/badge/version-3.0-red)
-![Status](https://img.shields.io/badge/status-backend_ready-green)
+![Version](https://img.shields.io/badge/version-3.1-red)
+![Status](https://img.shields.io/badge/status-production_ready-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Backend](https://img.shields.io/badge/backend-supabase-brightgreen)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-github_actions-blue)
+![Testing](https://img.shields.io/badge/testing-jest%20%2B%20playwright-green)
 
 ---
 
@@ -289,9 +291,9 @@ Detaylı geliştirme planı için: [gelecek-gelistirmeler.md](./gelecek-gelistir
 
 **Kısa Özet:**
 - **V2.0**: ✅ Gelişmiş animasyonlar (Tamamlandı - 30 Ekim 2025)
+- **V2.5**: ✅ Testing & CI/CD (Tamamlandı - 31 Ekim 2025)
 - **V3.0**: ✅ Supabase Backend (Tamamlandı - 31 Ekim 2025)
-- **V2.5**: Testing & CI/CD (Sonraki öncelik)
-- **V3.5**: CMS + AI pipeline (3 hafta)
+- **V3.5**: CMS + AI pipeline (Sonraki öncelik - 3 hafta)
 - **V4.0**: Kullanıcı sistemi (2 ay)
 - **V5.0**: Monetization (3 ay)
 - **V6.0**: Mobile App (4 ay)
