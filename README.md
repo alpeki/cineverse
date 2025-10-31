@@ -2,8 +2,8 @@
 
 Modern, sinematik bir dizi ve film kültür platformu. LandoNorris.com tarzında smooth scroll ve sahne geçişleriyle zenginleştirilmiş tek sayfalık deneyim.
 
-![Version](https://img.shields.io/badge/version-3.1-red)
-![Status](https://img.shields.io/badge/status-production_ready-green)
+![Version](https://img.shields.io/badge/version-3.2-red)
+![Status](https://img.shields.io/badge/status-production-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Backend](https://img.shields.io/badge/backend-supabase-brightgreen)
 ![CI/CD](https://img.shields.io/badge/CI%2FCD-github_actions-blue)
