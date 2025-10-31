@@ -63,12 +63,16 @@
       <p class="text-xl md:text-2xl font-light mb-12 tracking-widest">Keşfet • İzle • Yorumla</p>
       <!-- Gradient Animated Categories -->
       <ul id="gradient-categories" class="category-list">
-        <li data-target="#reviews" data-tr="İncelemeler" data-en="Reviews">İncelemeler</li>
-        <li data-target="#trailers" data-tr="Fragmanlar" data-en="Trailers">Fragmanlar</li>
-        <li data-target="#lists" data-tr="Listeler" data-en="Lists">Listeler</li>
-        <li data-target="#profiles" data-tr="Profiller" data-en="Profiles">Profiller</li>
-        <li data-target="#news" data-tr="Haberler" data-en="News">Haberler</li>
+        <li data-target="#reviews" data-tr="İNCELEMELER" data-en="REVIEWS">İNCELEMELER</li>
+        <li data-target="#trailers" data-tr="FRAGMANLAR" data-en="TRAILERS">FRAGMANLAR</li>
+        <li data-target="#lists" data-tr="LİSTELER" data-en="LISTS">LİSTELER</li>
+        <li data-target="#profiles" data-tr="PROFİLLER" data-en="PROFILES">PROFİLLER</li>
+        <li data-target="#news" data-tr="HABERLER" data-en="NEWS">HABERLER</li>
       </ul>
+    </div>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" onclick="document.querySelector('#reviews').scrollIntoView({behavior: 'smooth'})">
+      ⬇️
     </div>
   </section>
 
@@ -275,36 +279,8 @@
   <section id="news" class="py-24 px-6">
     <div class="container mx-auto">
       <h2 class="text-5xl font-bold mb-16 text-center">Son Haberler</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <article class="news-card card-tilt card-glow group cursor-pointer">
-          <div class="relative overflow-hidden rounded-lg mb-4">
-            <img src="/assets/images/news1.jpg" alt="Oscar 2025" loading="lazy" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <p class="text-sm text-accent mb-2">15.03.2025</p>
-          <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Oscar 2025 Adayları Açıklandı</h3>
-          <p class="text-sm font-light text-gray-300">Oppenheimer 13 dalda aday gösterilirken, Barbie ve Poor Things da önemli kategorilerde yarışacak.</p>
-          <a href="#" class="mt-4 inline-block text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
-        </article>
-
-        <article class="news-card group cursor-pointer">
-          <div class="relative overflow-hidden rounded-lg mb-4">
-            <img src="/assets/images/news2.jpg" alt="Dune 3" loading="lazy" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <p class="text-sm text-accent mb-2">12.03.2025</p>
-          <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Dune: Messiah Resmi Olarak Onaylandı</h3>
-          <p class="text-sm font-light text-gray-300">Denis Villeneuve, üçüncü Dune filmini yönetmeyi kabul etti. Çekimler 2026'da başlayacak.</p>
-          <a href="#" class="mt-4 inline-block text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
-        </article>
-
-        <article class="news-card group cursor-pointer">
-          <div class="relative overflow-hidden rounded-lg mb-4">
-            <img src="/assets/images/news3.jpg" alt="Netflix" loading="lazy" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
-          </div>
-          <p class="text-sm text-accent mb-2">10.03.2025</p>
-          <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Netflix'in Yeni Dizisi Rekor Kırdı</h3>
-          <p class="text-sm font-light text-gray-300">The Bear'ın 3. sezonu, ilk haftasında 50 milyon saat izlenerek platform rekorunu kırdı.</p>
-          <a href="#" class="mt-4 inline-block text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
-        </article>
+      <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- News will be loaded dynamically from Supabase -->
       </div>
     </div>
   </section>
@@ -514,12 +490,16 @@
         <input 
           type="email" 
           placeholder="E-posta" 
+          data-placeholder-tr="E-posta"
+          data-placeholder-en="Email"
           required
           class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
         />
         <input 
           type="password" 
           placeholder="Şifre" 
+          data-placeholder-tr="Şifre"
+          data-placeholder-en="Password"
           required
           class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
         />
@@ -544,18 +524,24 @@
         <input 
           type="text" 
           placeholder="Ad Soyad" 
+          data-placeholder-tr="Ad Soyad"
+          data-placeholder-en="Full Name"
           required
           class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
         />
         <input 
           type="email" 
           placeholder="E-posta" 
+          data-placeholder-tr="E-posta"
+          data-placeholder-en="Email"
           required
           class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
         />
         <input 
           type="password" 
           placeholder="Şifre" 
+          data-placeholder-tr="Şifre"
+          data-placeholder-en="Password"
           required
           class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
         />

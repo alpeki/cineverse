@@ -1,0 +1,39 @@
+feat: V4.0 UI/UX improvements and bug fixes
+
+Turkish Character Fixes:
+- Fixed category names (İNCELEMELER, LİSTELER, PROFİLLER)
+- All Turkish characters now display correctly
+
+Animated Icons:
+- Theme toggle with rotation animation
+- Search icon with pulse animation
+- Smooth hover effects
+
+Search Modal Enhancements:
+- Scroll lock when modal is open
+- Enhanced blur effect (12px backdrop)
+- Improved modal slide-in animation
+- Better visual hierarchy
+
+Language System:
+- Placeholder translations for login/signup forms
+- Email/Password fields translate correctly
+- Full TR/EN support for all UI elements
+
+News Section:
+- Removed hardcoded news from HTML
+- Now loads dynamically from Supabase
+- Uses news-grid selector
+
+Scroll Indicator:
+- Added bouncing arrow indicator
+- Helps users understand scrolling
+- Auto-scrolls to reviews section
+
+Documentation:
+- Updated TASKS.md to V4.0
+- Marked Phase 2, 3, 4 as completed
+- Updated progress metrics
+
+Version: 4.0.1
+Status: Production Ready

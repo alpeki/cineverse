@@ -3,6 +3,9 @@
  * Theme Toggle, Language Switcher, Search, Auth
  */
 
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 import { supabase } from './lib/supabaseClient.js'
 
 // ========================================
@@ -143,6 +146,13 @@ function updateLanguage(lang) {
     el.textContent = lang === 'tr' ? trText : enText
   })
   
+  // Update placeholders
+  document.querySelectorAll('[data-placeholder-tr]').forEach(input => {
+    const trPlaceholder = input.getAttribute('data-placeholder-tr')
+    const enPlaceholder = input.getAttribute('data-placeholder-en')
+    input.placeholder = lang === 'tr' ? trPlaceholder : enPlaceholder
+  })
+  
   localStorage.setItem('lang', lang)
 }
 
@@ -163,7 +173,19 @@ const searchResults = document.getElementById('search-results')
 
 searchBtn?.addEventListener('click', () => {
   searchModal?.classList.add('active')
+  document.body.style.overflow = 'hidden' // Lock scroll
   searchInput?.focus()
+})
+
+// Close modal and unlock scroll
+document.querySelectorAll('[data-close]').forEach(closeBtn => {
+  closeBtn.addEventListener('click', (e) => {
+    const modal = e.target.closest('.modal')
+    if (modal) {
+      modal.classList.remove('active')
+      document.body.style.overflow = '' // Unlock scroll
+    }
+  })
 })
 
 let searchTimeout

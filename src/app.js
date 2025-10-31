@@ -189,7 +189,7 @@ async function loadNews() {
       return
     }
 
-    const container = document.querySelector('#news .grid')
+    const container = document.querySelector('#news-grid')
     if (container) {
       container.innerHTML = news.map(renderNewsCard).join('')
       console.log(`✅ Loaded ${news.length} news items`)
