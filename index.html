@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Yerel Tailwind çıktısı -->
   <link rel="stylesheet" href="./dist/output.css" />
@@ -30,14 +30,24 @@
   <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar" aria-label="Ana menü">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#hero" class="logo text-2xl font-bold text-accent">CineVerse</a>
-      <ul class="hidden md:flex space-x-8 text-sm font-light">
-        <li><a href="#hero" class="hover:text-accent transition">Ana Sayfa</a></li>
-        <li><a href="#reviews" class="hover:text-accent transition">İncelemeler</a></li>
-        <li><a href="#trailers" class="hover:text-accent transition">Fragmanlar</a></li>
-        <li><a href="#lists" class="hover:text-accent transition">Listeler</a></li>
-        <li><a href="#profiles" class="hover:text-accent transition">Profiller</a></li>
-        <li><a href="#news" class="hover:text-accent transition">Haberler</a></li>
-      </ul>
+      <div class="flex items-center space-x-6">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="text-sm hover:text-accent transition" aria-label="Tema değiştir">
+          <span id="theme-icon">🌙</span>
+        </button>
+        <!-- Language Toggle -->
+        <button id="lang-toggle" class="text-sm font-light hover:text-accent transition" aria-label="Dil değiştir">
+          <span id="lang-text">EN</span>
+        </button>
+        <!-- Search -->
+        <button id="search-btn" class="text-sm hover:text-accent transition" aria-label="Ara">
+          🔍
+        </button>
+        <!-- Login -->
+        <button id="login-btn" class="bg-accent hover:bg-accent-hover text-white px-4 py-2 rounded-full text-sm font-bold transition">
+          <span data-tr="Giriş Yap" data-en="Login">Giriş Yap</span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -50,8 +60,15 @@
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-primary/50 to-bg-primary"></div>
     <div class="relative z-10 text-center px-6">
       <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight">CineVerse</h1>
-      <p class="text-xl md:text-2xl font-light mb-8 tracking-widest">Keşfet • İzle • Yorumla</p>
-      <a href="#reviews" class="inline-block bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">Son İncelemelere Git</a>
+      <p class="text-xl md:text-2xl font-light mb-12 tracking-widest">Keşfet • İzle • Yorumla</p>
+      <!-- Gradient Animated Categories -->
+      <ul id="gradient-categories" class="category-list">
+        <li data-target="#reviews" data-tr="İncelemeler" data-en="Reviews">İncelemeler</li>
+        <li data-target="#trailers" data-tr="Fragmanlar" data-en="Trailers">Fragmanlar</li>
+        <li data-target="#lists" data-tr="Listeler" data-en="Lists">Listeler</li>
+        <li data-target="#profiles" data-tr="Profiller" data-en="Profiles">Profiller</li>
+        <li data-target="#news" data-tr="Haberler" data-en="News">Haberler</li>
+      </ul>
     </div>
   </section>
 
@@ -471,12 +488,97 @@
     </div>
   </div>
 
+  <!-- SEARCH MODAL -->
+  <div id="search-modal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content max-w-2xl">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-6" data-tr="Ara" data-en="Search">Ara</h2>
+      <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Film, dizi, oyuncu, yönetmen ara..." 
+        class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-accent"
+      />
+      <div id="search-results" class="space-y-3 max-h-96 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="login-modal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content max-w-md">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-6 text-center" data-tr="Giriş Yap" data-en="Login">Giriş Yap</h2>
+      <form id="login-form" class="space-y-4">
+        <input 
+          type="email" 
+          placeholder="E-posta" 
+          required
+          class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+        />
+        <input 
+          type="password" 
+          placeholder="Şifre" 
+          required
+          class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+        />
+        <button type="submit" class="w-full bg-accent hover:bg-accent-hover text-white py-3 rounded-lg font-bold transition">
+          <span data-tr="Giriş Yap" data-en="Login">Giriş Yap</span>
+        </button>
+      </form>
+      <p class="text-center mt-4 text-sm text-gray-400">
+        <span data-tr="Hesabın yok mu?" data-en="Don't have an account?">Hesabın yok mu?</span>
+        <button id="show-signup" class="text-accent hover:underline ml-1" data-tr="Kayıt Ol" data-en="Sign Up">Kayıt Ol</button>
+      </p>
+    </div>
+  </div>
+
+  <!-- SIGNUP MODAL -->
+  <div id="signup-modal" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content max-w-md">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-6 text-center" data-tr="Kayıt Ol" data-en="Sign Up">Kayıt Ol</h2>
+      <form id="signup-form" class="space-y-4">
+        <input 
+          type="text" 
+          placeholder="Ad Soyad" 
+          required
+          class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+        />
+        <input 
+          type="email" 
+          placeholder="E-posta" 
+          required
+          class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+        />
+        <input 
+          type="password" 
+          placeholder="Şifre" 
+          required
+          class="w-full bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+        />
+        <button type="submit" class="w-full bg-accent hover:bg-accent-hover text-white py-3 rounded-lg font-bold transition">
+          <span data-tr="Kayıt Ol" data-en="Sign Up">Kayıt Ol</span>
+        </button>
+      </form>
+      <p class="text-center mt-4 text-sm text-gray-400">
+        <span data-tr="Zaten hesabın var mı?" data-en="Already have an account?">Zaten hesabın var mı?</span>
+        <button id="show-login" class="text-accent hover:underline ml-1" data-tr="Giriş Yap" data-en="Login">Giriş Yap</button>
+      </p>
+    </div>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
   <script type="module" src="script.js"></script>
   <!-- Dynamic data loading -->
   <script type="module" src="/src/app.js"></script>
+  <!-- Features -->
+  <script type="module" src="/src/features.js"></script>
 </body>
 </html>

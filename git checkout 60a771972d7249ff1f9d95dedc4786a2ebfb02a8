@@ -1,0 +1,101 @@
+[33mcommit 60a771972d7249ff1f9d95dedc4786a2ebfb02a8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Fri Oct 31 07:26:22 2025 +0300
+
+    feat: Production ready - Frontend-backend integration complete
+    
+    Frontend-Backend Integration:
+    - Created src/app.js for dynamic data loading
+    - Integrated Supabase services with UI
+    - Added loading states with spinners
+    - Added error handling with retry buttons
+    - Updated index.html to use module scripts
+    
+    Build System:
+    - Added terser for production minification
+    - Fixed Tailwind CSS build pipeline
+    - Optimized bundle size (vendor: 171KB, app: 10KB)
+    
+    Documentation:
+    - Created DEPLOYMENT_GUIDE.md
+    - Updated README.md to v3.2
+    - Updated .env.example with real credentials
+    
+    Production Build:
+    - Successfully built for production
+    - Code splitting implemented
+    - Assets optimized and minified
+    - Ready for Vercel deployment
+    
+    Version: 3.2.0
+    Status: Production Ready
+
+[33mcommit 230987d40433f650c23f249fb58cb61846db9cec[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Fri Oct 31 06:52:02 2025 +0300
+
+    feat: V3.2 documentation and build system improvements
+    
+    New Documentation (7 files):
+    - TASKS.md: Active task board with milestone tracking
+    - API.md: Comprehensive API endpoint documentation
+    - CONTRIBUTING.md: Contribution guidelines
+    - CHANGELOG.md: Version history
+    - AUTH_FLOW.md: Authentication flow diagrams
+    - EDGE_FUNCTIONS.md: Edge Functions documentation
+    - V3.2_RELEASE_NOTES.md: Release notes
+    
+    Build System Improvements:
+    - Standalone Tailwind CSS configuration
+    - PostCSS configuration
+    - Concurrently for parallel dev tasks
+    - Local Tailwind build (removed CDN)
+    
+    Service Layer Improvements:
+    - Updated import paths
+    - Improved error logging
+    - Added ordering to queries
+    - Enhanced JSDoc comments
+    
+    HTML Improvements:
+    - Semantic HTML elements
+    - Accessibility attributes
+    - Local Tailwind CSS
+    
+    Version: 3.1.0 -> 3.2.0
+
+[33mcommit 84e3007dd4ef026c0b440e2b96dcd0538bee49d7[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Fri Oct 31 00:55:40 2025 +0300
+
+    feat: V3.1 Testing CI/CD Analytics - Jest unit testing - Playwright E2E testing - Lighthouse CI performance - GitHub Actions workflow - Vercel Analytics - ESLint Prettier Husky - Automated deployment pipeline - Code quality tools
+
+[33mcommit 7f9eda1a57b68e5943ff8b11dc04ce9753b10c18[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Fri Oct 31 00:42:05 2025 +0300
+
+    docs: Tamamlanan tasklar raporu eklendi
+
+[33mcommit 8743d85667b27e5ca80fe8ad85253785b1071227[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Fri Oct 31 00:40:21 2025 +0300
+
+    feat: V3.0 Supabase Backend Entegrasyonu - Supabase client ve services olusturuldu - Database schema ve migrations hazirlandi - Vite build sistemi kuruldu - Kapsamli dokumantasyon eklendi - Proje raporu ve gelistirme onerileri olusturuldu
+
+[33mcommit 843608e66b860bc89758ec36b594db59fa411423[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Thu Oct 30 10:33:57 2025 +0300
+
+    docs: Add Supabase setup guide and update V3.0 roadmap
+
+[33mcommit 041bb468567bb5137dbadddf89505a6a9d251dd8[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Thu Oct 30 10:17:39 2025 +0300
+
+    docs: Update README and roadmap - Add V2.5-V7.0 phases, experimental.md, strategic table
+
+[33mcommit 0e6982d1e0308f5eb508eab73a2bc6a2f55154d6[m
+Author: CineVerse Team <info@cineverse.com>
+Date:   Thu Oct 30 09:47:12 2025 +0300
+
+    v2.0: Optimized performance - Removed custom cursor, faster scroll, throttled events
