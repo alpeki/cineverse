@@ -137,7 +137,7 @@ async function loadMovies() {
       return
     }
 
-    const container = document.querySelector('#reviews .grid')
+    const container = document.querySelector('#reviews-grid')
     if (container) {
       container.innerHTML = movies.map(renderMovieCard).join('')
       console.log(`✅ Loaded ${movies.length} movies`)
@@ -163,7 +163,7 @@ async function loadProfiles() {
       return
     }
 
-    const container = document.querySelector('#profiles .grid')
+    const container = document.querySelector('#profiles-grid')
     if (container) {
       container.innerHTML = profiles.map(renderProfileCard).join('')
       console.log(`✅ Loaded ${profiles.length} profiles`)

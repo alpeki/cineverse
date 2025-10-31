@@ -429,3 +429,9 @@ body.light-theme .profile-card {
         transform: translateX(-50%) translateY(10px);
     }
 }
+.review-card, .profile-card, .news-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative;
+  z-index: 5;
+}
