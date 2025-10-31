@@ -1,10 +1,10 @@
 /**
- * Profiles Service
+ * 👤 Profiles Service
  * 
- * Handles all profile-related database operations (actors, directors, etc.)
+ * Handles all profile-related database operations (actors, directors, writers) for CineVerse.
  */
 
-import { supabase } from '../lib/supabase.js'
+import { supabase } from '../lib/supabaseClient.js'
 
 /**
  * Get all profiles
@@ -22,7 +22,7 @@ export async function getProfiles(limit = 8) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching profiles:', error)
+    console.error('❌ Error fetching profiles:', error.message)
     return []
   }
 }
@@ -43,7 +43,7 @@ export async function getProfileById(id) {
     if (error) throw error
     return data
   } catch (error) {
-    console.error('Error fetching profile:', error)
+    console.error('❌ Error fetching profile by ID:', error.message)
     return null
   }
 }
@@ -66,7 +66,7 @@ export async function getProfilesByRole(role, limit = 10) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching profiles by role:', error)
+    console.error('❌ Error fetching profiles by role:', error.message)
     return []
   }
 }
@@ -82,12 +82,13 @@ export async function searchProfiles(query) {
       .from('profiles')
       .select('*')
       .ilike('name', `%${query}%`)
+      .order('name', { ascending: true })
       .limit(10)
 
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error searching profiles:', error)
+    console.error('❌ Error searching profiles:', error.message)
     return []
   }
 }

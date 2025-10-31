@@ -1,457 +1,480 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineVerse – Dizi & Film Kültür Sitesi</title>
-    <meta name="description" content="Sinema ve dizi kültürünün kalbi. İncelemeler, fragmanlar, listeler ve daha fazlası.">
-    <meta property="og:title" content="CineVerse – Dizi & Film Kültür Sitesi">
-    <meta property="og:description" content="Sinema ve dizi kültürünün kalbi. İncelemeler, fragmanlar, listeler ve daha fazlası.">
-    <meta property="og:image" content="/assets/images/og-cover.jpg">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
-    
-    <!-- Preload Critical Assets -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" as="script">
-    <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="script.js" as="script">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bg-primary': '#0E0E0E',
-                        'text-primary': '#F2F2F2',
-                        'accent': '#E50914',
-                        'accent-hover': '#B20710',
-                    },
-                    fontFamily: {
-                        'space': ['Space Grotesk', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineVerse – Dizi & Film Kültür Sitesi</title>
+  <meta name="description" content="Sinema ve dizi kültürünün kalbi. İncelemeler, fragmanlar, listeler ve daha fazlası." />
+  <meta property="og:title" content="CineVerse – Dizi & Film Kültür Sitesi" />
+  <meta property="og:description" content="Sinema ve dizi kültürünün kalbi. İncelemeler, fragmanlar, listeler ve daha fazlası." />
+  <meta property="og:image" content="/assets/images/og-cover.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet" />
+
+  <!-- Yerel Tailwind çıktısı -->
+  <link rel="stylesheet" href="./dist/output.css" />
+  <!-- Ek özel stiller -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Preload kritik scriptler -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" as="script" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" as="script" />
+  <link rel="preload" href="script.js" as="script" />
 </head>
 <body class="bg-bg-primary text-text-primary font-space">
-    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="logo text-2xl font-bold text-accent">CineVerse</div>
-            <ul class="hidden md:flex space-x-8 text-sm font-light">
-                <li><a href="#hero" class="hover:text-accent transition">Ana Sayfa</a></li>
-                <li><a href="#reviews" class="hover:text-accent transition">İncelemeler</a></li>
-                <li><a href="#trailers" class="hover:text-accent transition">Fragmanlar</a></li>
-                <li><a href="#lists" class="hover:text-accent transition">Listeler</a></li>
-                <li><a href="#profiles" class="hover:text-accent transition">Profiller</a></li>
-                <li><a href="#news" class="hover:text-accent transition">Haberler</a></li>
-            </ul>
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar" aria-label="Ana menü">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="logo text-2xl font-bold text-accent">CineVerse</a>
+      <ul class="hidden md:flex space-x-8 text-sm font-light">
+        <li><a href="#hero" class="hover:text-accent transition">Ana Sayfa</a></li>
+        <li><a href="#reviews" class="hover:text-accent transition">İncelemeler</a></li>
+        <li><a href="#trailers" class="hover:text-accent transition">Fragmanlar</a></li>
+        <li><a href="#lists" class="hover:text-accent transition">Listeler</a></li>
+        <li><a href="#profiles" class="hover:text-accent transition">Profiller</a></li>
+        <li><a href="#news" class="hover:text-accent transition">Haberler</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <video autoplay muted loop playsinline class="parallax absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" preload="metadata">
+      <source src="/assets/videos/intro.mp4" type="video/mp4" />
+      Tarayıcınız video etiketini desteklemiyor.
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-primary/50 to-bg-primary"></div>
+    <div class="relative z-10 text-center px-6">
+      <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight">CineVerse</h1>
+      <p class="text-xl md:text-2xl font-light mb-8 tracking-widest">Keşfet • İzle • Yorumla</p>
+      <a href="#reviews" class="inline-block bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">Son İncelemelere Git</a>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="py-24 px-6">
+    <div class="container mx-auto">
+      <h2 class="text-5xl font-bold mb-16 text-center">Son İncelemeler</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="review-card card-tilt card-glow group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/movie1.jpg" alt="Oppenheimer" loading="lazy" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Oppenheimer</h3>
+          <div class="flex items-center mb-3">
+            <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
+            <span class="ml-2 text-sm text-gray-400">5.0/5</span>
+          </div>
+          <p class="text-sm font-light text-gray-300">Christopher Nolan'ın başyapıtı, atom bombasının babası J. Robert Oppenheimer'ın hikayesini sunuyor.</p>
         </div>
-    </nav>
-    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <video autoplay muted loop playsinline class="parallax absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" preload="metadata">
-            <source src="/assets/videos/intro.mp4" type="video/mp4">
-        </video>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-primary/50 to-bg-primary"></div>
-        <div class="relative z-10 text-center px-6">
-            <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight">CineVerse</h1>
-            <p class="text-xl md:text-2xl font-light mb-8 tracking-widest">Keşfet • İzle • Yorumla</p>
-            <a href="#reviews" class="inline-block bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">Son İncelemelere Git</a>
+
+        <div class="review-card card-tilt card-glow group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/movie2.jpg" alt="Barbie" loading="lazy" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Barbie</h3>
+          <div class="flex items-center mb-3">
+            <span class="text-accent text-xl">⭐⭐⭐⭐</span>
+            <span class="ml-2 text-sm text-gray-400">4.5/5</span>
+          </div>
+          <p class="text-sm font-light text-gray-300">Greta Gerwig'in renkli ve zeki yaklaşımı, Barbie'yi çok daha fazlasına dönüştürüyor.</p>
         </div>
-    </section>
-    <section id="reviews" class="py-24 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-5xl font-bold mb-16 text-center">Son İncelemeler</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="review-card card-tilt card-glow group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/movie1.jpg" alt="Oppenheimer" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Crect fill='%23222' width='400' height='600'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Oppenheimer</h3>
-                    <div class="flex items-center mb-3">
-                        <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
-                        <span class="ml-2 text-sm text-gray-400">5.0/5</span>
-                    </div>
-                    <p class="text-sm font-light text-gray-300">Christopher Nolan'ın başyapıtı, atom bombasının babası J. Robert Oppenheimer'ın hikayesini sunuyor.</p>
-                </div>
-                <div class="review-card card-tilt card-glow group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/movie2.jpg" alt="Barbie" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Crect fill='%23222' width='400' height='600'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Barbie</h3>
-                    <div class="flex items-center mb-3">
-                        <span class="text-accent text-xl">⭐⭐⭐⭐</span>
-                        <span class="ml-2 text-sm text-gray-400">4.5/5</span>
-                    </div>
-                    <p class="text-sm font-light text-gray-300">Greta Gerwig'in renkli ve zeki yaklaşımı, Barbie'yi çok daha fazlasına dönüştürüyor.</p>
-                </div>
-                <div class="review-card card-tilt card-glow group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/movie3.jpg" alt="Dune: Part Two" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Crect fill='%23222' width='400' height='600'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Dune: Part Two</h3>
-                    <div class="flex items-center mb-3">
-                        <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
-                        <span class="ml-2 text-sm text-gray-400">5.0/5</span>
-                    </div>
-                    <p class="text-sm font-light text-gray-300">Denis Villeneuve, bilimkurgu sinemasının zirvesine ulaşıyor. Görsel bir şaheser.</p>
-                </div>
-                <div class="review-card group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/movie4.jpg" alt="The Bear" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Crect fill='%23222' width='400' height='600'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">The Bear</h3>
-                    <div class="flex items-center mb-3">
-                        <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
-                        <span class="ml-2 text-sm text-gray-400">5.0/5</span>
-                    </div>
-                    <p class="text-sm font-light text-gray-300">Bir restoran mutfağının kaosunda geçen bu dizi, televizyon tarihine geçiyor.</p>
-                </div>
-                <div class="review-card group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/movie5.jpg" alt="Succession" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Crect fill='%23222' width='400' height='600'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Succession</h3>
-                    <div class="flex items-center mb-3">
-                        <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
-                        <span class="ml-2 text-sm text-gray-400">5.0/5</span>
-                    </div>
-                    <p class="text-sm font-light text-gray-300">Modern televizyonun zirvesi. Güç, aile ve ihanet üzerine mükemmel bir inceleme.</p>
-                </div>
-                <div class="review-card group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/movie6.jpg" alt="Poor Things" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Crect fill='%23222' width='400' height='600'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Poor Things</h3>
-                    <div class="flex items-center mb-3">
-                        <span class="text-accent text-xl">⭐⭐⭐⭐</span>
-                        <span class="ml-2 text-sm text-gray-400">4.5/5</span>
-                    </div>
-                    <p class="text-sm font-light text-gray-300">Yorgos Lanthimos'un tuhaf ve büyüleyici dünyası, Emma Stone ile hayat buluyor.</p>
-                </div>
+
+        <div class="review-card card-tilt card-glow group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/movie3.jpg" alt="Dune: Part Two" loading="lazy" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Dune: Part Two</h3>
+          <div class="flex items-center mb-3">
+            <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
+            <span class="ml-2 text-sm text-gray-400">5.0/5</span>
+          </div>
+          <p class="text-sm font-light text-gray-300">Denis Villeneuve, bilimkurgu sinemasının zirvesine ulaşıyor. Görsel bir şaheser.</p>
+        </div>
+
+        <div class="review-card group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/movie4.jpg" alt="The Bear" loading="lazy" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <h3 class="text-2xl font-bold mb-2">The Bear</h3>
+          <div class="flex items-center mb-3">
+            <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
+            <span class="ml-2 text-sm text-gray-400">5.0/5</span>
+          </div>
+          <p class="text-sm font-light text-gray-300">Bir restoran mutfağının kaosunda geçen bu dizi, televizyon tarihine geçiyor.</p>
+        </div>
+
+        <div class="review-card group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/movie5.jpg" alt="Succession" loading="lazy" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Succession</h3>
+          <div class="flex items-center mb-3">
+            <span class="text-accent text-xl">⭐⭐⭐⭐⭐</span>
+            <span class="ml-2 text-sm text-gray-400">5.0/5</span>
+          </div>
+          <p class="text-sm font-light text-gray-300">Modern televizyonun zirvesi. Güç, aile ve ihanet üzerine mükemmel bir inceleme.</p>
+        </div>
+
+        <div class="review-card group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/movie6.jpg" alt="Poor Things" loading="lazy" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Poor Things</h3>
+          <div class="flex items-center mb-3">
+            <span class="text-accent text-xl">⭐⭐⭐⭐</span>
+            <span class="ml-2 text-sm text-gray-400">4.5/5</span>
+          </div>
+          <p class="text-sm font-light text-gray-300">Yorgos Lanthimos'un tuhaf ve büyüleyici dünyası, Emma Stone ile hayat buluyor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAILERS -->
+  <section id="trailers" class="py-24 px-6 bg-black/30">
+    <div class="container mx-auto">
+      <h2 class="text-5xl font-bold mb-16 text-center">Son Fragmanlar</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="trailer-card">
+          <div class="aspect-video rounded-lg overflow-hidden">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uYPbbksJxIg" title="Oppenheimer" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <h3 class="text-xl font-bold mt-4">Oppenheimer - Resmi Fragman</h3>
+        </div>
+        <div class="trailer-card">
+          <div class="aspect-video rounded-lg overflow-hidden">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pBk4NYhWNMM" title="Barbie" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <h3 class="text-xl font-bold mt-4">Barbie - Resmi Fragman</h3>
+        </div>
+        <div class="trailer-card">
+          <div class="aspect-video rounded-lg overflow-hidden">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Way9Dexny3w" title="Dune" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <h3 class="text-xl font-bold mt-4">Dune: Part Two - Resmi Fragman</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTS -->
+  <section id="lists" class="py-24">
+    <div class="container mx-auto px-6">
+      <h2 class="text-5xl font-bold mb-16 text-center">Özel Listeler</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="list-card relative overflow-hidden rounded-lg cursor-pointer group h-96" data-modal-target="#modal-scifi">
+          <img src="/assets/images/list-scifi.jpg" alt="Bilimkurgu" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-transparent flex items-end p-8">
+            <div>
+              <h3 class="text-3xl font-bold mb-2">En İyi Bilimkurgu Filmleri</h3>
+              <p class="text-sm font-light">Tıklayarak tam listeyi görüntüle</p>
             </div>
+          </div>
         </div>
-    </section>
-    <section id="trailers" class="py-24 px-6 bg-black/30">
-        <div class="container mx-auto">
-            <h2 class="text-5xl font-bold mb-16 text-center">Son Fragmanlar</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="trailer-card">
-                    <div class="aspect-video rounded-lg overflow-hidden">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uYPbbksJxIg" title="Oppenheimer" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3 class="text-xl font-bold mt-4">Oppenheimer - Resmi Fragman</h3>
-                </div>
-                <div class="trailer-card">
-                    <div class="aspect-video rounded-lg overflow-hidden">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pBk4NYhWNMM" title="Barbie" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3 class="text-xl font-bold mt-4">Barbie - Resmi Fragman</h3>
-                </div>
-                <div class="trailer-card">
-                    <div class="aspect-video rounded-lg overflow-hidden">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Way9Dexny3w" title="Dune" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <h3 class="text-xl font-bold mt-4">Dune: Part Two - Resmi Fragman</h3>
-                </div>
+        <div class="list-card relative overflow-hidden rounded-lg cursor-pointer group h-96" data-modal-target="#modal-cult">
+          <img src="/assets/images/list-cult.jpg" alt="Cult" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-transparent flex items-end p-8">
+            <div>
+              <h3 class="text-3xl font-bold mb-2">Cult Klasikler</h3>
+              <p class="text-sm font-light">Tıklayarak tam listeyi görüntüle</p>
             </div>
+          </div>
         </div>
-    </section>
-    <section id="lists" class="py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-bold mb-16 text-center">Özel Listeler</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="list-card relative overflow-hidden rounded-lg cursor-pointer group h-96" data-modal-target="#modal-scifi">
-                    <img data-src="/assets/images/list-scifi.jpg" alt="Bilimkurgu" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect fill='%23222' width='800' height='400'/%3E%3C/svg%3E">
-                    <div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-transparent flex items-end p-8">
-                        <div>
-                            <h3 class="text-3xl font-bold mb-2">En İyi Bilimkurgu Filmleri</h3>
-                            <p class="text-sm font-light">Tıklayarak tam listeyi görüntüle</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-card relative overflow-hidden rounded-lg cursor-pointer group h-96" data-modal-target="#modal-cult">
-                    <img data-src="/assets/images/list-cult.jpg" alt="Cult" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect fill='%23222' width='800' height='400'/%3E%3C/svg%3E">
-                    <div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-transparent flex items-end p-8">
-                        <div>
-                            <h3 class="text-3xl font-bold mb-2">Cult Klasikler</h3>
-                            <p class="text-sm font-light">Tıklayarak tam listeyi görüntüle</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="profiles" class="py-24 px-6 bg-black/30">
-        <div class="container mx-auto">
-            <h2 class="text-5xl font-bold mb-16 text-center">Oyuncular & Yönetmenler</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-nolan">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile1.jpg" alt="Christopher Nolan" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Christopher Nolan</h3>
-                    <p class="text-sm text-gray-400 font-light">Yönetmen</p>
-                </div>
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-gerwig">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile2.jpg" alt="Greta Gerwig" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Greta Gerwig</h3>
-                    <p class="text-sm text-gray-400 font-light">Yönetmen</p>
-                </div>
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-villeneuve">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile3.jpg" alt="Denis Villeneuve" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Denis Villeneuve</h3>
-                    <p class="text-sm text-gray-400 font-light">Yönetmen</p>
-                </div>
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-stone">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile4.jpg" alt="Emma Stone" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Emma Stone</h3>
-                    <p class="text-sm text-gray-400 font-light">Oyuncu</p>
-                </div>
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-murphy">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile5.jpg" alt="Cillian Murphy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Cillian Murphy</h3>
-                    <p class="text-sm text-gray-400 font-light">Oyuncu</p>
-                </div>
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-chalamet">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile6.jpg" alt="Timothée Chalamet" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Timothée Chalamet</h3>
-                    <p class="text-sm text-gray-400 font-light">Oyuncu</p>
-                </div>
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-robbie">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile7.jpg" alt="Margot Robbie" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Margot Robbie</h3>
-                    <p class="text-sm text-gray-400 font-light">Oyuncu</p>
-                </div>
-                <div class="profile-card cursor-pointer group" data-modal-target="#modal-lanthimos">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/profile8.jpg" alt="Yorgos Lanthimos" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect fill='%23222' width='300' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <h3 class="text-xl font-bold">Yorgos Lanthimos</h3>
-                    <p class="text-sm text-gray-400 font-light">Yönetmen</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="news" class="py-24 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-5xl font-bold mb-16 text-center">Son Haberler</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="news-card card-tilt card-glow group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/news1.jpg" alt="Oscar 2025" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23222' width='600' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <p class="text-sm text-accent mb-2">15.03.2025</p>
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Oscar 2025 Adayları Açıklandı</h3>
-                    <p class="text-sm font-light text-gray-300 mb-4">Oppenheimer 13 dalda aday gösterilirken, Barbie ve Poor Things da önemli kategorilerde yarışacak.</p>
-                    <a href="#" class="text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
-                </div>
-                <div class="news-card group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/news2.jpg" alt="Dune 3" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23222' width='600' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <p class="text-sm text-accent mb-2">12.03.2025</p>
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Dune: Messiah Resmi Olarak Onaylandı</h3>
-                    <p class="text-sm font-light text-gray-300 mb-4">Denis Villeneuve, üçüncü Dune filmini yönetmeyi kabul etti. Çekimler 2026'da başlayacak.</p>
-                    <a href="#" class="text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
-                </div>
-                <div class="news-card group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img data-src="/assets/images/news3.jpg" alt="Netflix" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazy-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23222' width='600' height='400'/%3E%3C/svg%3E">
-                    </div>
-                    <p class="text-sm text-accent mb-2">10.03.2025</p>
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Netflix'in Yeni Dizisi Rekor Kırdı</h3>
-                    <p class="text-sm font-light text-gray-300 mb-4">The Bear'ın 3. sezonu, ilk haftasında 50 milyon saat izlenerek platform rekorunu kırdı.</p>
-                    <a href="#" class="text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer id="footer" class="py-16 px-6 border-t border-gray-800">
-        <div class="container mx-auto text-center">
-            <div class="text-3xl font-bold text-accent mb-4">CineVerse</div>
-            <p class="text-sm font-light text-gray-400 mb-6 max-w-md mx-auto">Sinema ve dizi kültürünün kalbi.</p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-gray-400 hover:text-accent transition">Instagram</a>
-                <a href="#" class="text-gray-400 hover:text-accent transition">Twitter</a>
-                <a href="#" class="text-gray-400 hover:text-accent transition">Letterboxd</a>
-            </div>
-            <p class="text-xs text-gray-500">© 2025 CineVerse. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
-    <div id="modal-scifi" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-6">En İyi Bilimkurgu Filmleri</h2>
-            <ul class="space-y-3 text-lg">
-                <li>1. Blade Runner 2049</li>
-                <li>2. Interstellar</li>
-                <li>3. Dune: Part Two</li>
-                <li>4. The Matrix</li>
-                <li>5. 2001: A Space Odyssey</li>
-                <li>6. Arrival</li>
-                <li>7. Ex Machina</li>
-                <li>8. Inception</li>
-            </ul>
-        </div>
+      </div>
     </div>
-    <div id="modal-cult" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-6">Cult Klasikler</h2>
-            <ul class="space-y-3 text-lg">
-                <li>1. Fight Club</li>
-                <li>2. Pulp Fiction</li>
-                <li>3. The Big Lebowski</li>
-                <li>4. Donnie Darko</li>
-                <li>5. Eternal Sunshine</li>
-                <li>6. Mulholland Drive</li>
-                <li>7. The Shawshank Redemption</li>
-            </ul>
+  </section>
+
+  <!-- PROFILES -->
+  <section id="profiles" class="py-24 px-6 bg-black/30">
+    <div class="container mx-auto">
+      <h2 class="text-5xl font-bold mb-16 text-center">Oyuncular & Yönetmenler</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-nolan">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile1.jpg" alt="Christopher Nolan" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Christopher Nolan</h3>
+          <p class="text-sm text-gray-400 font-light">Yönetmen</p>
         </div>
-    </div>
-    <div id="modal-nolan" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Christopher Nolan</h2>
-            <p class="text-gray-300 mb-4">Modern sinemanın en önemli yönetmenlerinden. Karmaşık anlatımları ve görsel ustalığıyla tanınır.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Oppenheimer (2023)</li>
-                <li>• Tenet (2020)</li>
-                <li>• Dunkirk (2017)</li>
-                <li>• Interstellar (2014)</li>
-                <li>• Inception (2010)</li>
-            </ul>
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-gerwig">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile2.jpg" alt="Greta Gerwig" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Greta Gerwig</h3>
+          <p class="text-sm text-gray-400 font-light">Yönetmen</p>
         </div>
-    </div>
-    <div id="modal-gerwig" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Greta Gerwig</h2>
-            <p class="text-gray-300 mb-4">Bağımsız sinemadan gelen, özgün bakış açısıyla Hollywood'u etkileyen yönetmen.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Barbie (2023)</li>
-                <li>• Little Women (2019)</li>
-                <li>• Lady Bird (2017)</li>
-            </ul>
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-villeneuve">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile3.jpg" alt="Denis Villeneuve" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Denis Villeneuve</h3>
+          <p class="text-sm text-gray-400 font-light">Yönetmen</p>
         </div>
-    </div>
-    <div id="modal-villeneuve" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Denis Villeneuve</h2>
-            <p class="text-gray-300 mb-4">Bilimkurgu türünün modern ustası. Görsel şiir yaratma konusunda benzersiz.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Dune: Part Two (2024)</li>
-                <li>• Dune (2021)</li>
-                <li>• Blade Runner 2049 (2017)</li>
-                <li>• Arrival (2016)</li>
-                <li>• Sicario (2015)</li>
-            </ul>
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-stone">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile4.jpg" alt="Emma Stone" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Emma Stone</h3>
+          <p class="text-sm text-gray-400 font-light">Oyuncu</p>
         </div>
-    </div>
-    <div id="modal-stone" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Emma Stone</h2>
-            <p class="text-gray-300 mb-4">Çok yönlü oyunculuğu ve karizmasıyla dikkat çeken Oscar ödüllü aktris.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Poor Things (2023)</li>
-                <li>• Cruella (2021)</li>
-                <li>• La La Land (2016)</li>
-                <li>• Birdman (2014)</li>
-            </ul>
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-murphy">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile5.jpg" alt="Cillian Murphy" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Cillian Murphy</h3>
+          <p class="text-sm text-gray-400 font-light">Oyuncu</p>
         </div>
-    </div>
-    <div id="modal-murphy" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Cillian Murphy</h2>
-            <p class="text-gray-300 mb-4">İrlandalı aktör. Yoğun ve derinlikli karakterleriyle tanınır.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Oppenheimer (2023)</li>
-                <li>• Peaky Blinders (2013-2022)</li>
-                <li>• Inception (2010)</li>
-                <li>• The Dark Knight (2008)</li>
-            </ul>
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-chalamet">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile6.jpg" alt="Timothée Chalamet" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Timothée Chalamet</h3>
+          <p class="text-sm text-gray-400 font-light">Oyuncu</p>
         </div>
-    </div>
-    <div id="modal-chalamet" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Timothée Chalamet</h2>
-            <p class="text-gray-300 mb-4">Genç kuşağın en yetenekli aktörlerinden. Duygu yüklü performanslarıyla öne çıkar.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Dune: Part Two (2024)</li>
-                <li>• Dune (2021)</li>
-                <li>• Little Women (2019)</li>
-                <li>• Call Me by Your Name (2017)</li>
-            </ul>
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-robbie">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile7.jpg" alt="Margot Robbie" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Margot Robbie</h3>
+          <p class="text-sm text-gray-400 font-light">Oyuncu</p>
         </div>
-    </div>
-    <div id="modal-robbie" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Margot Robbie</h2>
-            <p class="text-gray-300 mb-4">Avustralyalı aktris ve yapımcı. Güçlü kadın karakterleriyle tanınır.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Barbie (2023)</li>
-                <li>• Babylon (2022)</li>
-                <li>• I, Tonya (2017)</li>
-                <li>• The Wolf of Wall Street (2013)</li>
-            </ul>
+        <div class="profile-card cursor-pointer group" data-modal-target="#modal-lanthimos">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/profile8.jpg" alt="Yorgos Lanthimos" loading="lazy" class="w-full h-80 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+          </div>
+          <h3 class="text-xl font-bold">Yorgos Lanthimos</h3>
+          <p class="text-sm text-gray-400 font-light">Yönetmen</p>
         </div>
+      </div>
     </div>
-    <div id="modal-lanthimos" class="modal">
-        <div class="modal-overlay" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" data-close>×</button>
-            <h2 class="text-3xl font-bold mb-4">Yorgos Lanthimos</h2>
-            <p class="text-gray-300 mb-4">Yunan yönetmen. Tuhaf, karanlık ve büyüleyici filmleriyle tanınır.</p>
-            <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-            <ul class="space-y-2 text-gray-300">
-                <li>• Poor Things (2023)</li>
-                <li>• The Favourite (2018)</li>
-                <li>• The Killing of a Sacred Deer (2017)</li>
-                <li>• The Lobster (2015)</li>
-            </ul>
-        </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="py-24 px-6">
+    <div class="container mx-auto">
+      <h2 class="text-5xl font-bold mb-16 text-center">Son Haberler</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <article class="news-card card-tilt card-glow group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/news1.jpg" alt="Oscar 2025" loading="lazy" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <p class="text-sm text-accent mb-2">15.03.2025</p>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Oscar 2025 Adayları Açıklandı</h3>
+          <p class="text-sm font-light text-gray-300">Oppenheimer 13 dalda aday gösterilirken, Barbie ve Poor Things da önemli kategorilerde yarışacak.</p>
+          <a href="#" class="mt-4 inline-block text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="news-card group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/news2.jpg" alt="Dune 3" loading="lazy" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <p class="text-sm text-accent mb-2">12.03.2025</p>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Dune: Messiah Resmi Olarak Onaylandı</h3>
+          <p class="text-sm font-light text-gray-300">Denis Villeneuve, üçüncü Dune filmini yönetmeyi kabul etti. Çekimler 2026'da başlayacak.</p>
+          <a href="#" class="mt-4 inline-block text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
+        </article>
+
+        <article class="news-card group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg mb-4">
+            <img src="/assets/images/news3.jpg" alt="Netflix" loading="lazy" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <p class="text-sm text-accent mb-2">10.03.2025</p>
+          <h3 class="text-xl font-bold mb-3 group-hover:text-accent transition">Netflix'in Yeni Dizisi Rekor Kırdı</h3>
+          <p class="text-sm font-light text-gray-300">The Bear'ın 3. sezonu, ilk haftasında 50 milyon saat izlenerek platform rekorunu kırdı.</p>
+          <a href="#" class="mt-4 inline-block text-accent text-sm font-bold hover:underline">Devamını Oku →</a>
+        </article>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="py-16 px-6 border-t border-gray-800">
+    <div class="container mx-auto text-center">
+      <div class="text-3xl font-bold text-accent mb-4">CineVerse</div>
+      <p class="text-sm font-light text-gray-400 mb-6 max-w-md mx-auto">Sinema ve dizi kültürünün kalbi.</p>
+      <div class="flex justify-center space-x-6 mb-8">
+        <a href="#" class="text-gray-400 hover:text-accent transition" aria-label="Instagram">Instagram</a>
+        <a href="#" class="text-gray-400 hover:text-accent transition" aria-label="Twitter">Twitter</a>
+        <a href="#" class="text-gray-400 hover:text-accent transition" aria-label="Letterboxd">Letterboxd</a>
+      </div>
+      <p class="text-xs text-gray-500">© 2025 CineVerse. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="modal-scifi" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-6">En İyi Bilimkurgu Filmleri</h2>
+      <ul class="space-y-3 text-lg">
+        <li>1. Blade Runner 2049</li>
+        <li>2. Interstellar</li>
+        <li>3. Dune: Part Two</li>
+        <li>4. The Matrix</li>
+        <li>5. 2001: A Space Odyssey</li>
+        <li>6. Arrival</li>
+        <li>7. Ex Machina</li>
+        <li>8. Inception</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-cult" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-6">Cult Klasikler</h2>
+      <ul class="space-y-3 text-lg">
+        <li>1. Fight Club</li>
+        <li>2. Pulp Fiction</li>
+        <li>3. The Big Lebowski</li>
+        <li>4. Donnie Darko</li>
+        <li>5. Eternal Sunshine</li>
+        <li>6. Mulholland Drive</li>
+        <li>7. The Shawshank Redemption</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-nolan" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Christopher Nolan</h2>
+      <p class="text-gray-300 mb-4">Modern sinemanın en önemli yönetmenlerinden. Karmaşık anlatımları ve görsel ustalığıyla tanınır.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Oppenheimer (2023)</li>
+        <li>• Tenet (2020)</li>
+        <li>• Dunkirk (2017)</li>
+        <li>• Interstellar (2014)</li>
+        <li>• Inception (2010)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-gerwig" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Greta Gerwig</h2>
+      <p class="text-gray-300 mb-4">Bağımsız sinemadan gelen, özgün bakış açısıyla Hollywood'u etkileyen yönetmen.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Barbie (2023)</li>
+        <li>• Little Women (2019)</li>
+        <li>• Lady Bird (2017)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-villeneuve" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Denis Villeneuve</h2>
+      <p class="text-gray-300 mb-4">Bilimkurgu türünün modern ustası. Görsel şiir yaratma konusunda benzersiz.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Dune: Part Two (2024)</li>
+        <li>• Dune (2021)</li>
+        <li>• Blade Runner 2049 (2017)</li>
+        <li>• Arrival (2016)</li>
+        <li>• Sicario (2015)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-stone" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Emma Stone</h2>
+      <p class="text-gray-300 mb-4">Çok yönlü oyunculuğu ve karizmasıyla dikkat çeken Oscar ödüllü aktris.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Poor Things (2023)</li>
+        <li>• Cruella (2021)</li>
+        <li>• La La Land (2016)</li>
+        <li>• Birdman (2014)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-murphy" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Cillian Murphy</h2>
+      <p class="text-gray-300 mb-4">İrlandalı aktör. Yoğun ve derinlikli karakterleriyle tanınır.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Oppenheimer (2023)</li>
+        <li>• Peaky Blinders (2013-2022)</li>
+        <li>• Inception (2010)</li>
+        <li>• The Dark Knight (2008)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-chalamet" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Timothée Chalamet</h2>
+      <p class="text-gray-300 mb-4">Genç kuşağın en yetenekli aktörlerinden. Duygu yüklü performanslarıyla öne çıkar.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Dune: Part Two (2024)</li>
+        <li>• Dune (2021)</li>
+        <li>• Little Women (2019)</li>
+        <li>• Call Me by Your Name (2017)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-robbie" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Margot Robbie</h2>
+      <p class="text-gray-300 mb-4">Avustralyalı aktris ve yapımcı. Güçlü kadın karakterleriyle tanınır.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Barbie (2023)</li>
+        <li>• Babylon (2022)</li>
+        <li>• I, Tonya (2017)</li>
+        <li>• The Wolf of Wall Street (2013)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-lanthimos" class="modal" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
+      <h2 class="text-3xl font-bold mb-4">Yorgos Lanthimos</h2>
+      <p class="text-gray-300 mb-4">Yunan yönetmen. Tuhaf, karanlık ve büyüleyici filmleriyle tanınır.</p>
+      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>• Poor Things (2023)</li>
+        <li>• The Favourite (2018)</li>
+        <li>• The Killing of a Sacred Deer (2017)</li>
+        <li>• The Lobster (2015)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

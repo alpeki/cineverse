@@ -1,10 +1,10 @@
 /**
- * News Service
+ * 📰 News Service
  * 
- * Handles all news-related database operations
+ * Handles all news-related database operations for CineVerse.
  */
 
-import { supabase } from '../lib/supabase.js'
+import { supabase } from '../lib/supabaseClient.js'
 
 /**
  * Get all published news
@@ -23,7 +23,7 @@ export async function getNews(limit = 3) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching news:', error)
+    console.error('❌ Error fetching news:', error.message)
     return []
   }
 }
@@ -44,14 +44,14 @@ export async function getNewsBySlug(slug) {
     if (error) throw error
     return data
   } catch (error) {
-    console.error('Error fetching news:', error)
+    console.error('❌ Error fetching news by slug:', error.message)
     return null
   }
 }
 
 /**
  * Get news by category
- * @param {string} category - Category name (news, review, interview)
+ * @param {string} category - Category name (e.g. news, review, interview)
  * @param {number} limit - Number of news items to fetch
  * @returns {Promise<Array>} Array of news items
  */
@@ -68,13 +68,14 @@ export async function getNewsByCategory(category, limit = 10) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching news by category:', error)
+    console.error('❌ Error fetching news by category:', error.message)
     return []
   }
 }
 
 /**
- * Increment news view count
+ * Increment news view count (safe RPC)
+ * Requires an RPC function in Supabase: increment_news_views(news_id UUID)
  * @param {string} id - News UUID
  * @returns {Promise<boolean>} Success status
  */
@@ -84,7 +85,7 @@ export async function incrementNewsViews(id) {
     if (error) throw error
     return true
   } catch (error) {
-    console.error('Error incrementing news views:', error)
+    console.warn('⚠️ increment_news_views RPC not found or failed:', error.message)
     return false
   }
 }

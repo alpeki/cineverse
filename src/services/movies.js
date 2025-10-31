@@ -1,10 +1,10 @@
 /**
- * Movies Service
+ * 🎬 Movies Service
  * 
- * Handles all movie-related database operations
+ * Handles all movie-related database operations for CineVerse.
  */
 
-import { supabase } from '../lib/supabase.js'
+import { supabase } from '../lib/supabaseClient.js'
 
 /**
  * Get all published movies
@@ -23,7 +23,7 @@ export async function getMovies(limit = 6) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching movies:', error)
+    console.error('❌ Error fetching movies:', error.message)
     return []
   }
 }
@@ -44,7 +44,7 @@ export async function getMovieById(id) {
     if (error) throw error
     return data
   } catch (error) {
-    console.error('Error fetching movie:', error)
+    console.error('❌ Error fetching movie:', error.message)
     return null
   }
 }
@@ -61,12 +61,13 @@ export async function searchMovies(query) {
       .select('*')
       .or(`title.ilike.%${query}%,synopsis.ilike.%${query}%`)
       .eq('status', 'published')
+      .order('rating', { ascending: false })
       .limit(10)
 
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error searching movies:', error)
+    console.error('❌ Error searching movies:', error.message)
     return []
   }
 }
@@ -90,7 +91,7 @@ export async function getMoviesByGenre(genre, limit = 10) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching movies by genre:', error)
+    console.error('❌ Error fetching movies by genre:', error.message)
     return []
   }
 }
@@ -114,7 +115,7 @@ export async function getMoviesByYear(startYear, endYear) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching movies by year:', error)
+    console.error('❌ Error fetching movies by year:', error.message)
     return []
   }
 }
@@ -137,7 +138,7 @@ export async function getTopRatedMovies(limit = 10) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching top rated movies:', error)
+    console.error('❌ Error fetching top rated movies:', error.message)
     return []
   }
 }

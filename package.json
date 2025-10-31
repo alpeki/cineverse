@@ -1,11 +1,12 @@
 {
   "name": "cineverse",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Modern dizi ve film kültür platformu",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "concurrently \"npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch\" \"vite\"",
+    "build": "npm run build:css && vite build",
+    "build:css": "npx tailwindcss -i ./src/styles.css -o ./src/output.css --minify",
     "preview": "vite preview",
     "deploy": "npm run build && vercel --prod",
     "lint": "eslint src/**/*.js",
@@ -22,19 +23,23 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.39.0",
+    "@supabase/supabase-js": "^2.78.0",
     "@vercel/analytics": "^1.1.1"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@lhci/cli": "^0.13.0",
     "@playwright/test": "^1.40.1",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^8.2.2",
     "eslint": "^8.55.0",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.0",
+    "postcss": "^8.5.6",
     "prettier": "^3.1.1",
+    "tailwindcss": "^3.4.13",
     "vite": "^5.0.10"
   },
   "lint-staged": {
@@ -43,13 +48,7 @@
       "prettier --write"
     ]
   },
-  "keywords": [
-    "cinema",
-    "movies",
-    "tv-shows",
-    "reviews",
-    "film-culture"
-  ],
+  "keywords": ["cinema", "movies", "tv-shows", "reviews", "film-culture"],
   "author": "CineVerse Team",
   "license": "MIT"
 }

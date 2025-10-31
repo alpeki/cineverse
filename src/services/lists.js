@@ -1,10 +1,10 @@
 /**
- * Lists Service
+ * 📋 Lists Service
  * 
- * Handles all list-related database operations
+ * Handles all list-related database operations for CineVerse.
  */
 
-import { supabase } from '../lib/supabase.js'
+import { supabase } from '../lib/supabaseClient.js'
 
 /**
  * Get all published lists
@@ -23,7 +23,7 @@ export async function getLists(limit = 10) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching lists:', error)
+    console.error('❌ Error fetching lists:', error.message)
     return []
   }
 }
@@ -35,6 +35,7 @@ export async function getLists(limit = 10) {
  */
 export async function getListBySlug(slug) {
   try {
+    // Fetch list details
     const { data: list, error: listError } = await supabase
       .from('lists')
       .select('*')
@@ -43,7 +44,7 @@ export async function getListBySlug(slug) {
 
     if (listError) throw listError
 
-    // Fetch movies in the list
+    // Fetch related movies if movie_ids exist
     if (list && list.movie_ids && list.movie_ids.length > 0) {
       const { data: movies, error: moviesError } = await supabase
         .from('movies')
@@ -56,16 +57,16 @@ export async function getListBySlug(slug) {
 
     return list
   } catch (error) {
-    console.error('Error fetching list:', error)
+    console.error('❌ Error fetching list with movies:', error.message)
     return null
   }
 }
 
 /**
  * Get lists by category
- * @param {string} category - Category name
+ * @param {string} category - Category name (e.g., 'sci-fi', 'classic')
  * @param {number} limit - Number of lists to fetch
- * @returns {Promise<Array>} Array of lists
+ * @returns {Promise<Array>} Array of list objects
  */
 export async function getListsByCategory(category, limit = 10) {
   try {
@@ -80,7 +81,7 @@ export async function getListsByCategory(category, limit = 10) {
     if (error) throw error
     return data || []
   } catch (error) {
-    console.error('Error fetching lists by category:', error)
+    console.error('❌ Error fetching lists by category:', error.message)
     return []
   }
 }

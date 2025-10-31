@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CineVerse özel stilleri */
+body {
+  @apply bg-bg-primary text-text-primary font-space;
+}
+
+a {
+  @apply transition duration-200 hover:text-accent;
+}
