@@ -13,6 +13,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <!-- Meta Variable Font for 3D Logo -->
+  <link rel="preload" href="https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Yerel Tailwind çıktısı -->
   <link rel="stylesheet" href="./dist/output.css" />
@@ -29,7 +32,7 @@
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar" aria-label="Ana menü">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#hero" class="logo text-2xl font-bold text-accent">CineVerse</a>
+      <a href="#hero" class="logo text-2xl font-bold text-accent logo-3d">CineVerse</a>
       <div class="flex items-center space-x-6">
         <!-- Theme Toggle -->
         <button id="theme-toggle" class="text-2xl hover:text-accent transition" aria-label="Tema değiştir">
@@ -59,13 +62,13 @@
     </video>
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-primary/50 to-bg-primary"></div>
     <div class="relative z-10 text-center px-6">
-      <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight title-3d">CineVerse</h1>
-      <!-- Animated Subtitle -->
-      <div class="subtitle-container mb-12">
-        <div class="subtitle-upper">CineVerse</div>
-        <div class="subtitle-lower">CineVerse</div>
-        <div class="subtitle-inside">Keşfet • İzle • Yorumla</div>
-      </div>
+      <!-- Split Animated Title -->
+      <h2 class="hero-title">
+        CineVerse
+        <span>CineVerse</span>
+        <span>CineVerse</span>
+        <span>Keşfet • İzle • Yorumla</span>
+      </h2>
       <!-- Gradient Animated Categories -->
       <ul id="gradient-categories" class="category-list">
         <li data-target="#reviews" data-tr="İNCELEMELER" data-en="REVIEWS">İNCELEMELER</li>

@@ -1,3 +1,10 @@
+@font-face {
+    src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2") format("woff2");
+    font-family: "Meta";
+    font-style: normal;
+    font-weight: normal;
+}
+
 :root {
     --bg-primary: #0E0E0E;
     --text-primary: #F2F2F2;
@@ -34,6 +41,39 @@ nav.scrolled {
     background: rgba(14, 14, 14, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   LOGO 3D ANIMATION
+   ======================================== */
+.logo-3d {
+    transition: all 0.5s ease;
+    -webkit-text-stroke: 2px #d6f4f4;
+    font-variation-settings: "wght" 900, "ital" 1;
+    color: transparent !important;
+    font-family: "Meta", sans-serif;
+    text-shadow: 
+        4px 4px 0px #07bccc,
+        6px 6px 0px #e601c0,
+        8px 8px 0px #e9019a,
+        10px 10px 0px #f40468,
+        18px 18px 5px #482896;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.logo-3d:hover {
+    font-variation-settings: "wght" 100, "ital" 0;
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--accent);
+}
+
+body.light-theme .logo-3d {
+    -webkit-text-stroke: 2px #1a1a1a;
+}
+
+body.light-theme .logo-3d:hover {
+    -webkit-text-stroke: 1px var(--accent);
 }
 
 section {
@@ -402,136 +442,80 @@ body.light-theme .profile-card {
 }
 
 /* ========================================
-   3D ANIMATED TITLE (CineVerse)
+   HERO TITLE SPLIT ANIMATION
    ======================================== */
-.title-3d {
-    transition: all 0.5s ease;
-    -webkit-text-stroke: 3px rgba(242, 242, 242, 0.3);
-    font-weight: 900;
+.hero-title {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: clamp(3rem, 10vw, 6rem);
     color: transparent;
-    font-family: 'Syncopate', sans-serif;
-    text-shadow: 
-        8px 8px 0px #07bccc,
-        12px 12px 0px #e601c0,
-        16px 16px 0px #e9019a,
-        20px 20px 0px #f40468,
-        35px 35px 10px rgba(72, 40, 150, 0.5);
-    cursor: pointer;
-    position: relative;
-}
-
-.title-3d:hover {
-    -webkit-text-stroke: 2px rgba(242, 242, 242, 0.8);
-    text-shadow: 
-        2px 2px 0px rgba(7, 188, 204, 0.3),
-        4px 4px 0px rgba(230, 1, 192, 0.3),
-        6px 6px 0px rgba(233, 1, 154, 0.3),
-        8px 8px 0px rgba(244, 4, 104, 0.3),
-        15px 15px 20px rgba(72, 40, 150, 0.3);
-    transform: scale(1.02);
-}
-
-/* Light theme adjustments for 3D title */
-body.light-theme .title-3d {
-    -webkit-text-stroke: 3px rgba(26, 26, 26, 0.3);
-    text-shadow: 
-        8px 8px 0px #07bccc,
-        12px 12px 0px #e601c0,
-        16px 16px 0px #e9019a,
-        20px 20px 0px #f40468,
-        35px 35px 10px rgba(72, 40, 150, 0.4);
-}
-
-body.light-theme .title-3d:hover {
-    -webkit-text-stroke: 2px rgba(26, 26, 26, 0.6);
-}
-
-/* ========================================
-   ANIMATED SUBTITLE (Keşfet • İzle • Yorumla)
-   ======================================== */
-.subtitle-container {
-    width: 9.25em;
-    height: 1.15em;
-    font-size: 4rem;
-    font-family: 'Space Grotesk', sans-serif;
-    position: relative;
-    margin: 0 auto;
-}
-
-.subtitle-container div {
-    position: absolute;
-    left: 0;
     text-transform: uppercase;
-    width: 100%;
-    display: block;
-    text-align: center;
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    margin-bottom: 3rem;
 }
 
-.subtitle-upper {
-    top: 0;
-    height: 52.5%;
-    color: var(--text-primary);
-    overflow: hidden;
-    z-index: 3;
-    animation: moveUp 1.5s ease-in-out 1;
-    background-color: var(--bg-primary);
-}
-
-.subtitle-lower {
-    bottom: 0;
-    height: 100%;
-    background: linear-gradient(180deg, var(--bg-primary) 52.5%, var(--text-primary) 52.5%);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    z-index: 1;
-    animation: moveDown 1.5s ease-in-out 1;
-}
-
-.subtitle-inside {
+.hero-title span:nth-child(1) {
     position: absolute;
-    top: 40%;
-    transform: translateY(-40%);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-primary);
+    transition: 0.5s;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    overflow: hidden;
+}
+
+.hero-title:hover span:nth-child(1) {
+    transform: translateX(-50%) translateY(-18px);
+}
+
+.hero-title span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-primary);
+    transition: 0.5s;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    overflow: hidden;
+}
+
+.hero-title:hover span:nth-child(2) {
+    transform: translateX(-50%) translateY(18px);
+}
+
+.hero-title span:nth-child(3) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleY(0);
+    width: 100%;
+    color: var(--text-primary);
+    background: var(--accent);
+    font-size: 0.25em;
+    font-weight: 500;
+    letter-spacing: 0.5em;
     text-align: center;
-    z-index: 2;
-    font-size: 1rem;
-    color: var(--accent);
+    padding: 0.5em 1em;
+    transition: 0.5s;
+    white-space: nowrap;
 }
 
-@keyframes moveUp {
-    0%, 100% {
-        top: 0;
-    }
-    50%, 70% {
-        top: -45px;
-    }
+.hero-title:hover span:nth-child(3) {
+    transform: translate(-50%, -50%) scaleY(1);
 }
 
-@keyframes moveDown {
-    0%, 100% {
-        top: 0;
-    }
-    50%, 70% {
-        top: 30px;
-    }
+/* Light theme adjustments */
+body.light-theme .hero-title span:nth-child(1),
+body.light-theme .hero-title span:nth-child(2) {
+    color: var(--text-primary);
 }
 
-@media (max-width: 768px) {
-    .subtitle-container {
-        font-size: 2.5rem;
-    }
-    .subtitle-inside {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 424px) {
-    .subtitle-container {
-        font-size: 2rem;
-    }
-    .subtitle-inside {
-        font-size: 0.6rem;
-    }
+body.light-theme .hero-title span:nth-child(3) {
+    color: #ffffff;
+    background: var(--accent);
 }
 
 /* ========================================
