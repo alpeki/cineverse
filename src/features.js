@@ -11,12 +11,12 @@ import { supabase } from './lib/supabaseClient.js'
 // ========================================
 // GRADIENT CATEGORIES ANIMATION
 // ========================================
-const items = document.querySelectorAll(".category-list li")
+const items = document.querySelectorAll('.category-list li')
 
 // GSAP CustomEase için fallback
-const customEase = window.CustomEase 
-  ? CustomEase.create("custom", "M0,0 C0.548,0.032 0.63,1 1,1")
-  : "power2.inOut"
+const customEase = window.CustomEase
+  ? CustomEase.create('custom', 'M0,0 C0.548,0.032 0.63,1 1,1')
+  : 'power2.inOut'
 
 // Intro animation
 if (window.gsap && items.length > 0) {
@@ -27,14 +27,14 @@ if (window.gsap && items.length > 0) {
       }
     })
     .to(items, {
-      "--stop-active": "100%",
+      '--stop-active': '100%',
       stagger: {
         each: 0.1,
         ease: customEase
       }
     })
     .to(items, {
-      "--stop-hover": "100%",
+      '--stop-hover': '100%',
       stagger: {
         each: 0.1
       }
@@ -42,39 +42,39 @@ if (window.gsap && items.length > 0) {
     .to(
       items,
       {
-        "--stop-hover": "0%",
+        '--stop-hover': '0%',
         stagger: {
           each: -0.1
         }
       },
-      "-=0.1"
+      '-=0.1'
     )
 
-  gsap.set(items, { "--stop-hover": "0%" })
+  gsap.set(items, { '--stop-hover': '0%' })
 
   // Hover animations
-  items.forEach((item) => {
-    item.addEventListener("mouseenter", function () {
+  items.forEach(item => {
+    item.addEventListener('mouseenter', function () {
       gsap.to(this, {
-        "--stop-hover": "100%",
+        '--stop-hover': '100%',
         ease: customEase,
         duration: 0.36
       })
     })
 
-    item.addEventListener("mouseleave", function () {
+    item.addEventListener('mouseleave', function () {
       gsap.to(this, {
-        "--stop-hover": "0%",
+        '--stop-hover': '0%',
         ease: customEase,
         duration: 0.36
       })
     })
 
     // Smooth scroll
-    item.addEventListener("click", () => {
-      const target = item.getAttribute("data-target")
+    item.addEventListener('click', () => {
+      const target = item.getAttribute('data-target')
       if (target) {
-        document.querySelector(target)?.scrollIntoView({ behavior: "smooth" })
+        document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' })
       }
     })
   })
@@ -110,26 +110,26 @@ let currentLang = localStorage.getItem('lang') || 'tr'
 // Translations
 const translations = {
   tr: {
-    'İncelemeler': 'İncelemeler',
-    'Fragmanlar': 'Fragmanlar',
-    'Listeler': 'Listeler',
-    'Profiller': 'Profiller',
-    'Haberler': 'Haberler',
+    İncelemeler: 'İncelemeler',
+    Fragmanlar: 'Fragmanlar',
+    Listeler: 'Listeler',
+    Profiller: 'Profiller',
+    Haberler: 'Haberler',
     'Giriş Yap': 'Giriş Yap',
     'Kayıt Ol': 'Kayıt Ol',
-    'Ara': 'Ara',
+    Ara: 'Ara',
     'Hesabın yok mu?': 'Hesabın yok mu?',
     'Zaten hesabın var mı?': 'Zaten hesabın var mı?'
   },
   en: {
-    'İncelemeler': 'Reviews',
-    'Fragmanlar': 'Trailers',
-    'Listeler': 'Lists',
-    'Profiller': 'Profiles',
-    'Haberler': 'News',
+    İncelemeler: 'Reviews',
+    Fragmanlar: 'Trailers',
+    Listeler: 'Lists',
+    Profiller: 'Profiles',
+    Haberler: 'News',
     'Giriş Yap': 'Login',
     'Kayıt Ol': 'Sign Up',
-    'Ara': 'Search',
+    Ara: 'Search',
     'Hesabın yok mu?': "Don't have an account?",
     'Zaten hesabın var mı?': 'Already have an account?'
   }
@@ -138,21 +138,21 @@ const translations = {
 function updateLanguage(lang) {
   currentLang = lang
   langText.textContent = lang === 'tr' ? 'EN' : 'TR'
-  
+
   // Update all elements with data-tr and data-en
   document.querySelectorAll('[data-tr]').forEach(el => {
     const trText = el.getAttribute('data-tr')
     const enText = el.getAttribute('data-en')
     el.textContent = lang === 'tr' ? trText : enText
   })
-  
+
   // Update placeholders
   document.querySelectorAll('[data-placeholder-tr]').forEach(input => {
     const trPlaceholder = input.getAttribute('data-placeholder-tr')
     const enPlaceholder = input.getAttribute('data-placeholder-en')
     input.placeholder = lang === 'tr' ? trPlaceholder : enPlaceholder
   })
-  
+
   localStorage.setItem('lang', lang)
 }
 
@@ -179,7 +179,7 @@ searchBtn?.addEventListener('click', () => {
 
 // Close modal and unlock scroll
 document.querySelectorAll('[data-close]').forEach(closeBtn => {
-  closeBtn.addEventListener('click', (e) => {
+  closeBtn.addEventListener('click', e => {
     const modal = e.target.closest('.modal')
     if (modal) {
       modal.classList.remove('active')
@@ -189,15 +189,15 @@ document.querySelectorAll('[data-close]').forEach(closeBtn => {
 })
 
 let searchTimeout
-searchInput?.addEventListener('input', (e) => {
+searchInput?.addEventListener('input', e => {
   clearTimeout(searchTimeout)
   const query = e.target.value.trim()
-  
+
   if (query.length < 2) {
     searchResults.innerHTML = ''
     return
   }
-  
+
   searchTimeout = setTimeout(async () => {
     await performSearch(query)
   }, 300)
@@ -205,7 +205,7 @@ searchInput?.addEventListener('input', (e) => {
 
 async function performSearch(query) {
   searchResults.innerHTML = '<p class="text-gray-400">Aranıyor...</p>'
-  
+
   try {
     // Search in movies, profiles, news
     const [movies, profiles, news] = await Promise.all([
@@ -213,9 +213,9 @@ async function performSearch(query) {
       supabase.from('profiles').select('*').ilike('name', `%${query}%`).limit(5),
       supabase.from('news').select('*').ilike('title', `%${query}%`).limit(5)
     ])
-    
+
     const results = []
-    
+
     if (movies.data?.length) {
       results.push('<h3 class="font-bold text-accent mb-2">Filmler</h3>')
       movies.data.forEach(m => {
@@ -227,7 +227,7 @@ async function performSearch(query) {
         `)
       })
     }
-    
+
     if (profiles.data?.length) {
       results.push('<h3 class="font-bold text-accent mb-2 mt-4">Profiller</h3>')
       profiles.data.forEach(p => {
@@ -239,7 +239,7 @@ async function performSearch(query) {
         `)
       })
     }
-    
+
     if (news.data?.length) {
       results.push('<h3 class="font-bold text-accent mb-2 mt-4">Haberler</h3>')
       news.data.forEach(n => {
@@ -251,7 +251,7 @@ async function performSearch(query) {
         `)
       })
     }
-    
+
     if (results.length === 0) {
       searchResults.innerHTML = '<p class="text-gray-400">Sonuç bulunamadı.</p>'
     } else {
@@ -289,19 +289,19 @@ showLogin?.addEventListener('click', () => {
 })
 
 // Login
-loginForm?.addEventListener('submit', async (e) => {
+loginForm?.addEventListener('submit', async e => {
   e.preventDefault()
   const email = e.target[0].value
   const password = e.target[1].value
-  
+
   try {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
     })
-    
+
     if (error) throw error
-    
+
     alert('Giriş başarılı! 🎉')
     loginModal?.classList.remove('active')
     loginBtn.innerHTML = '<span>👤 Profil</span>'
@@ -311,12 +311,12 @@ loginForm?.addEventListener('submit', async (e) => {
 })
 
 // Signup
-signupForm?.addEventListener('submit', async (e) => {
+signupForm?.addEventListener('submit', async e => {
   e.preventDefault()
   const name = e.target[0].value
   const email = e.target[1].value
   const password = e.target[2].value
-  
+
   try {
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -327,9 +327,9 @@ signupForm?.addEventListener('submit', async (e) => {
         }
       }
     })
-    
+
     if (error) throw error
-    
+
     alert('Kayıt başarılı! Lütfen e-postanızı kontrol edin. 📧')
     signupModal?.classList.remove('active')
   } catch (error) {
@@ -344,4 +344,28 @@ supabase.auth.getSession().then(({ data: { session } }) => {
   }
 })
 
-console.log('✅ Features loaded: Theme, Language, Search, Auth')
+// ========================================
+// NAV CATEGORIES VISIBILITY
+// ========================================
+const navCategories = document.getElementById('nav-categories')
+const heroSection = document.getElementById('hero')
+
+function updateNavCategories() {
+  if (!navCategories || !heroSection) return
+
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
+  const scrollPosition = window.scrollY + 100 // Add offset for better UX
+
+  if (scrollPosition > heroBottom) {
+    navCategories.classList.remove('hidden')
+  } else {
+    navCategories.classList.add('hidden')
+  }
+}
+
+// Update on scroll
+window.addEventListener('scroll', updateNavCategories)
+// Initial check
+updateNavCategories()
+
+console.log('✅ Features loaded: Theme, Language, Search, Auth, Nav Categories')

@@ -32,14 +32,26 @@
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar" aria-label="Ana menü">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#hero" class="logo text-2xl font-bold text-accent logo-3d">CineVerse</a>
+      <a href="#hero" class="logo text-2xl font-bold text-accent">CineVerse</a>
+      
+      <!-- Category Navigation (Hidden on hero) -->
+      <nav id="nav-categories" class="nav-categories hidden">
+        <ul class="flex space-x-6 text-sm font-bold">
+          <li><a href="#reviews" class="hover:text-accent transition" data-tr="İNCELEMELER" data-en="REVIEWS">İNCELEMELER</a></li>
+          <li><a href="#trailers" class="hover:text-accent transition" data-tr="FRAGMANLAR" data-en="TRAILERS">FRAGMANLAR</a></li>
+          <li><a href="#lists" class="hover:text-accent transition" data-tr="LİSTELER" data-en="LISTS">LİSTELER</a></li>
+          <li><a href="#profiles" class="hover:text-accent transition" data-tr="PROFİLLER" data-en="PROFILES">PROFİLLER</a></li>
+          <li><a href="#news" class="hover:text-accent transition" data-tr="HABERLER" data-en="NEWS">HABERLER</a></li>
+        </ul>
+      </nav>
+      
       <div class="flex items-center space-x-6">
         <!-- Theme Toggle -->
         <button id="theme-toggle" class="text-2xl hover:text-accent transition" aria-label="Tema değiştir">
           <span id="theme-icon">🌙</span>
         </button>
         <!-- Language Toggle -->
-        <button id="lang-toggle" class="text-lg font-light hover:text-accent transition" aria-label="Dil değiştir">
+        <button id="lang-toggle" class="text-lg font-light hover:text-accent transition w-8 text-center" aria-label="Dil değiştir">
           <span id="lang-text">EN</span>
         </button>
         <!-- Search -->
@@ -47,7 +59,7 @@
           🔍
         </button>
         <!-- Login -->
-        <button id="login-btn" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-full text-base font-bold transition">
+        <button id="login-btn" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-full text-base font-bold transition min-w-[120px]">
           <span data-tr="Giriş Yap" data-en="Login">Giriş Yap</span>
         </button>
       </div>
@@ -67,7 +79,7 @@
         CineVerse
         <span>CineVerse</span>
         <span>CineVerse</span>
-        <span>Keşfet • İzle • Yorumla</span>
+        <span data-tr="Keşfet • İzle • Yorumla" data-en="Discover • Watch • Review">Keşfet • İzle • Yorumla</span>
       </h2>
       <!-- Gradient Animated Categories -->
       <ul id="gradient-categories" class="category-list">

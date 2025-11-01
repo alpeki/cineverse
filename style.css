@@ -43,6 +43,24 @@ nav.scrolled {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
+.nav-categories {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-categories.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+}
+
+body.light-theme nav {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme nav.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+}
+
 /* ========================================
    LOGO 3D ANIMATION
    ======================================== */
