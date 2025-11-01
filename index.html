@@ -32,19 +32,19 @@
       <a href="#hero" class="logo text-2xl font-bold text-accent">CineVerse</a>
       <div class="flex items-center space-x-6">
         <!-- Theme Toggle -->
-        <button id="theme-toggle" class="text-sm hover:text-accent transition" aria-label="Tema değiştir">
+        <button id="theme-toggle" class="text-2xl hover:text-accent transition" aria-label="Tema değiştir">
           <span id="theme-icon">🌙</span>
         </button>
         <!-- Language Toggle -->
-        <button id="lang-toggle" class="text-sm font-light hover:text-accent transition" aria-label="Dil değiştir">
+        <button id="lang-toggle" class="text-lg font-light hover:text-accent transition" aria-label="Dil değiştir">
           <span id="lang-text">EN</span>
         </button>
         <!-- Search -->
-        <button id="search-btn" class="text-sm hover:text-accent transition" aria-label="Ara">
+        <button id="search-btn" class="text-2xl hover:text-accent transition" aria-label="Ara">
           🔍
         </button>
         <!-- Login -->
-        <button id="login-btn" class="bg-accent hover:bg-accent-hover text-white px-4 py-2 rounded-full text-sm font-bold transition">
+        <button id="login-btn" class="bg-accent hover:bg-accent-hover text-white px-6 py-2.5 rounded-full text-base font-bold transition">
           <span data-tr="Giriş Yap" data-en="Login">Giriş Yap</span>
         </button>
       </div>
@@ -72,13 +72,27 @@
     </div>
     <!-- Scroll Indicator -->
     <div class="scroll-indicator" onclick="document.querySelector('#reviews').scrollIntoView({behavior: 'smooth'})">
-      ⬇️
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="5" width="20" height="30" rx="10" stroke="currentColor" stroke-width="2"/>
+        <circle cx="20" cy="12" r="2" fill="currentColor" class="scroll-dot"/>
+      </svg>
+      <div class="scroll-text">Scroll</div>
     </div>
   </section>
 
   <!-- REVIEWS -->
   <section id="reviews" class="py-24 px-6">
     <div class="container mx-auto">
+      <!-- Category Navigation -->
+      <nav class="category-nav mb-12">
+        <ul class="flex justify-center space-x-8 text-sm font-bold">
+          <li><a href="#reviews" class="hover:text-accent transition">İNCELEMELER</a></li>
+          <li><a href="#trailers" class="hover:text-accent transition">FRAGMANLAR</a></li>
+          <li><a href="#lists" class="hover:text-accent transition">LİSTELER</a></li>
+          <li><a href="#profiles" class="hover:text-accent transition">PROFİLLER</a></li>
+          <li><a href="#news" class="hover:text-accent transition">HABERLER</a></li>
+        </ul>
+      </nav>
       <h2 class="text-5xl font-bold mb-16 text-center">Son İncelemeler</h2>
       <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Movies will be loaded from Supabase -->
@@ -89,6 +103,16 @@
   <!-- TRAILERS -->
   <section id="trailers" class="py-24 px-6 bg-black/30">
     <div class="container mx-auto">
+      <!-- Category Navigation -->
+      <nav class="category-nav mb-12">
+        <ul class="flex justify-center space-x-8 text-sm font-bold">
+          <li><a href="#reviews" class="hover:text-accent transition">İNCELEMELER</a></li>
+          <li><a href="#trailers" class="hover:text-accent transition">FRAGMANLAR</a></li>
+          <li><a href="#lists" class="hover:text-accent transition">LİSTELER</a></li>
+          <li><a href="#profiles" class="hover:text-accent transition">PROFİLLER</a></li>
+          <li><a href="#news" class="hover:text-accent transition">HABERLER</a></li>
+        </ul>
+      </nav>
       <h2 class="text-5xl font-bold mb-16 text-center">Son Fragmanlar</h2>
       <div id="trailers-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Trailers will be loaded from Supabase -->
@@ -99,6 +123,16 @@
   <!-- LISTS -->
   <section id="lists" class="py-24">
     <div class="container mx-auto px-6">
+      <!-- Category Navigation -->
+      <nav class="category-nav mb-12">
+        <ul class="flex justify-center space-x-8 text-sm font-bold">
+          <li><a href="#reviews" class="hover:text-accent transition">İNCELEMELER</a></li>
+          <li><a href="#trailers" class="hover:text-accent transition">FRAGMANLAR</a></li>
+          <li><a href="#lists" class="hover:text-accent transition">LİSTELER</a></li>
+          <li><a href="#profiles" class="hover:text-accent transition">PROFİLLER</a></li>
+          <li><a href="#news" class="hover:text-accent transition">HABERLER</a></li>
+        </ul>
+      </nav>
       <h2 class="text-5xl font-bold mb-16 text-center">Özel Listeler</h2>
       <div id="lists-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Lists will be loaded from Supabase -->
@@ -109,6 +143,16 @@
   <!-- PROFILES -->
   <section id="profiles" class="py-24 px-6 bg-black/30">
     <div class="container mx-auto">
+      <!-- Category Navigation -->
+      <nav class="category-nav mb-12">
+        <ul class="flex justify-center space-x-8 text-sm font-bold">
+          <li><a href="#reviews" class="hover:text-accent transition">İNCELEMELER</a></li>
+          <li><a href="#trailers" class="hover:text-accent transition">FRAGMANLAR</a></li>
+          <li><a href="#lists" class="hover:text-accent transition">LİSTELER</a></li>
+          <li><a href="#profiles" class="hover:text-accent transition">PROFİLLER</a></li>
+          <li><a href="#news" class="hover:text-accent transition">HABERLER</a></li>
+        </ul>
+      </nav>
       <h2 class="text-5xl font-bold mb-16 text-center">Oyuncular & Yönetmenler</h2>
       <div id="profiles-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <!-- Profiles will be loaded from Supabase -->
@@ -119,6 +163,16 @@
   <!-- NEWS -->
   <section id="news" class="py-24 px-6">
     <div class="container mx-auto">
+      <!-- Category Navigation -->
+      <nav class="category-nav mb-12">
+        <ul class="flex justify-center space-x-8 text-sm font-bold">
+          <li><a href="#reviews" class="hover:text-accent transition">İNCELEMELER</a></li>
+          <li><a href="#trailers" class="hover:text-accent transition">FRAGMANLAR</a></li>
+          <li><a href="#lists" class="hover:text-accent transition">LİSTELER</a></li>
+          <li><a href="#profiles" class="hover:text-accent transition">PROFİLLER</a></li>
+          <li><a href="#news" class="hover:text-accent transition">HABERLER</a></li>
+        </ul>
+      </nav>
       <h2 class="text-5xl font-bold mb-16 text-center">Son Haberler</h2>
       <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- News will be loaded dynamically from Supabase -->
@@ -141,170 +195,6 @@
   </footer>
 
   <!-- MODALS -->
-  <div id="modal-scifi" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-6">En İyi Bilimkurgu Filmleri</h2>
-      <ul class="space-y-3 text-lg">
-        <li>1. Blade Runner 2049</li>
-        <li>2. Interstellar</li>
-        <li>3. Dune: Part Two</li>
-        <li>4. The Matrix</li>
-        <li>5. 2001: A Space Odyssey</li>
-        <li>6. Arrival</li>
-        <li>7. Ex Machina</li>
-        <li>8. Inception</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-cult" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-6">Cult Klasikler</h2>
-      <ul class="space-y-3 text-lg">
-        <li>1. Fight Club</li>
-        <li>2. Pulp Fiction</li>
-        <li>3. The Big Lebowski</li>
-        <li>4. Donnie Darko</li>
-        <li>5. Eternal Sunshine</li>
-        <li>6. Mulholland Drive</li>
-        <li>7. The Shawshank Redemption</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-nolan" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Christopher Nolan</h2>
-      <p class="text-gray-300 mb-4">Modern sinemanın en önemli yönetmenlerinden. Karmaşık anlatımları ve görsel ustalığıyla tanınır.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Oppenheimer (2023)</li>
-        <li>• Tenet (2020)</li>
-        <li>• Dunkirk (2017)</li>
-        <li>• Interstellar (2014)</li>
-        <li>• Inception (2010)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-gerwig" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Greta Gerwig</h2>
-      <p class="text-gray-300 mb-4">Bağımsız sinemadan gelen, özgün bakış açısıyla Hollywood'u etkileyen yönetmen.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Barbie (2023)</li>
-        <li>• Little Women (2019)</li>
-        <li>• Lady Bird (2017)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-villeneuve" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Denis Villeneuve</h2>
-      <p class="text-gray-300 mb-4">Bilimkurgu türünün modern ustası. Görsel şiir yaratma konusunda benzersiz.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Dune: Part Two (2024)</li>
-        <li>• Dune (2021)</li>
-        <li>• Blade Runner 2049 (2017)</li>
-        <li>• Arrival (2016)</li>
-        <li>• Sicario (2015)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-stone" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Emma Stone</h2>
-      <p class="text-gray-300 mb-4">Çok yönlü oyunculuğu ve karizmasıyla dikkat çeken Oscar ödüllü aktris.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Poor Things (2023)</li>
-        <li>• Cruella (2021)</li>
-        <li>• La La Land (2016)</li>
-        <li>• Birdman (2014)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-murphy" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Cillian Murphy</h2>
-      <p class="text-gray-300 mb-4">İrlandalı aktör. Yoğun ve derinlikli karakterleriyle tanınır.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Oppenheimer (2023)</li>
-        <li>• Peaky Blinders (2013-2022)</li>
-        <li>• Inception (2010)</li>
-        <li>• The Dark Knight (2008)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-chalamet" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Timothée Chalamet</h2>
-      <p class="text-gray-300 mb-4">Genç kuşağın en yetenekli aktörlerinden. Duygu yüklü performanslarıyla öne çıkar.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Dune: Part Two (2024)</li>
-        <li>• Dune (2021)</li>
-        <li>• Little Women (2019)</li>
-        <li>• Call Me by Your Name (2017)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-robbie" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Margot Robbie</h2>
-      <p class="text-gray-300 mb-4">Avustralyalı aktris ve yapımcı. Güçlü kadın karakterleriyle tanınır.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Barbie (2023)</li>
-        <li>• Babylon (2022)</li>
-        <li>• I, Tonya (2017)</li>
-        <li>• The Wolf of Wall Street (2013)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal-lanthimos" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close aria-label="Pencereyi kapat">×</button>
-      <h2 class="text-3xl font-bold mb-4">Yorgos Lanthimos</h2>
-      <p class="text-gray-300 mb-4">Yunan yönetmen. Tuhaf, karanlık ve büyüleyici filmleriyle tanınır.</p>
-      <h3 class="text-xl font-bold mb-2">Öne Çıkan Filmleri</h3>
-      <ul class="space-y-2 text-gray-300">
-        <li>• Poor Things (2023)</li>
-        <li>• The Favourite (2018)</li>
-        <li>• The Killing of a Sacred Deer (2017)</li>
-        <li>• The Lobster (2015)</li>
-      </ul>
-    </div>
-  </div>
-
   <!-- SEARCH MODAL -->
   <div id="search-modal" class="modal" aria-hidden="true">
     <div class="modal-overlay" data-close></div>
