@@ -4,10 +4,9 @@
  * Handles dynamic data loading and UI rendering
  */
 
-import { getMovies, getTopRatedMovies } from './services/movies.js'
+import { getMovies } from './services/movies.js'
 import { getProfiles } from './services/profiles.js'
 import { getNews } from './services/news.js'
-import { getLists } from './services/lists.js'
 
 // Loading state management
 let isLoading = false
@@ -218,6 +217,9 @@ export async function initApp() {
     await Promise.all([loadMovies(), loadProfiles(), loadNews()])
 
     console.log('✅ CineVerse initialized successfully!')
+
+    // Dispatch custom event to notify other scripts that content is loaded
+    window.dispatchEvent(new CustomEvent('cineverse:content-loaded'))
   } catch (error) {
     console.error('❌ Error initializing app:', error)
   } finally {
